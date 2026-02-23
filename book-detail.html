@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>کتاب هنر یادگیری | سامانه جامع محبوب</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="styles.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- ═══ Main Header ═══ -->
+<header class="main-header" id="mainHeader">
+  <div class="header-inner">
+    <button class="header-btn d-lg-none" onclick="toggleSidebar()">
+      <i class="bi bi-list"></i>
+    </button>
+    <a href="index.html" class="logo">
+      <div class="logo-icon"><i class="bi bi-book-half"></i></div>
+      <span class="logo-text d-none d-sm-inline">محبوب</span>
+    </a>
+    <div class="header-mobile-search">
+      <input type="text" class="mobile-search-input" id="mobileSearchInput">
+      <div class="search-placeholder" id="searchPlaceholder">جستجو در <span class="ph-red">محبوب</span></div>
+    </div>
+    <div class="search-box">
+      <i class="bi bi-search search-icon"></i>
+      <input type="text" placeholder="جستجو در محبوب...">
+    </div>
+    <div class="header-actions">
+      <button class="header-btn" onclick="toggleTheme()" title="تغییر تم">
+        <i class="bi bi-moon-stars" id="themeIcon"></i>
+      </button>
+      <button class="header-btn" title="اعلان‌ها"><i class="bi bi-bell"></i><span class="badge-dot"></span></button>
+      <button class="header-btn d-none d-md-flex" title="علاقه‌مندی‌ها"><i class="bi bi-heart"></i></button>
+      <button class="login-btn"><i class="bi bi-person-circle"></i> ورود | ثبت نام</button>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ Book Detail ═══ -->
+<section class="book-detail-section">
+  <div class="container">
+    <div class="book-detail-grid">
+
+      <!-- Cover Column -->
+      <div class="detail-cover-col">
+        <div class="detail-cover-card">
+          <div class="detail-cover-wrap">
+            <svg viewBox="0 0 300 420" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="dc1" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#E8614D"/>
+                  <stop offset="100%" stop-color="#C94535"/>
+                </linearGradient>
+              </defs>
+              <rect width="300" height="420" fill="url(#dc1)" rx="12"/>
+              <rect x="30" y="50" width="240" height="100" rx="14" fill="rgba(255,255,255,0.12)"/>
+              <text x="150" y="115" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="28" font-weight="bold" font-family="Vazirmatn,sans-serif">هنر یادگیری</text>
+              <rect x="50" y="180" width="200" height="8" rx="4" fill="rgba(255,255,255,0.2)"/>
+              <rect x="70" y="200" width="160" height="6" rx="3" fill="rgba(255,255,255,0.12)"/>
+              <circle cx="150" cy="300" r="50" fill="rgba(255,255,255,0.08)"/>
+              <text x="150" y="312" text-anchor="middle" fill="rgba(255,255,255,0.2)" font-size="40">📖</text>
+              <rect x="60" y="380" width="180" height="6" rx="3" fill="rgba(255,255,255,0.1)"/>
+            </svg>
+            <span class="detail-cover-badge">رایگان</span>
+          </div>
+
+          <div class="detail-actions">
+            <a href="reader.html" class="detail-btn-primary">
+              <i class="bi bi-book"></i>
+              شروع مطالعه
+            </a>
+            <div class="detail-btn-row">
+              <button class="detail-btn-secondary" onclick="this.innerHTML='<i class=\'bi bi-heart-fill\' style=\'color:var(--melon)\'></i> اضافه شد'">
+                <i class="bi bi-heart"></i> علاقه‌مندی
+              </button>
+              <button class="detail-btn-secondary">
+                <i class="bi bi-share"></i> اشتراک‌گذاری
+              </button>
+            </div>
+            <button class="detail-btn-secondary">
+              <i class="bi bi-download"></i> دانلود نسخه آفلاین
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Info Column -->
+      <div class="detail-info-col">
+        <div class="detail-breadcrumb">
+          <a href="index.html">خانه</a> <span>/</span>
+          <a href="#">آثار متنی</a> <span>/</span>
+          <a href="#">توسعه فردی</a> <span>/</span>
+          <span style="color:var(--text-primary)">کتاب هنر یادگیری</span>
+        </div>
+
+        <h1 class="detail-title">کتاب هنر یادگیری</h1>
+        <div class="detail-author">
+          نویسنده: <a href="#">جاش ویتزکین</a> &nbsp;|&nbsp; مترجم: <a href="#">سارا احمدی</a>
+        </div>
+
+        <div class="detail-rating-row">
+          <div class="detail-stars">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-half"></i>
+          </div>
+          <span class="detail-rate-num">۴.۵</span>
+          <span class="detail-rate-count">(۱۲۸ نظر)</span>
+          <div class="detail-divider"></div>
+          <span style="font-size:13px;color:var(--text-muted)"><i class="bi bi-eye" style="color:var(--melon-light)"></i> ۳,۴۵۰ مطالعه</span>
+        </div>
+
+        <div class="detail-meta-grid">
+          <div class="detail-meta-item">
+            <div class="detail-meta-label">فرمت</div>
+            <div class="detail-meta-value"><i class="bi bi-journal-text" style="color:var(--melon)"></i> متنی</div>
+          </div>
+          <div class="detail-meta-item">
+            <div class="detail-meta-label">تعداد صفحات</div>
+            <div class="detail-meta-value">۲۸۴ صفحه</div>
+          </div>
+          <div class="detail-meta-item">
+            <div class="detail-meta-label">زبان</div>
+            <div class="detail-meta-value">فارسی</div>
+          </div>
+          <div class="detail-meta-item">
+            <div class="detail-meta-label">سال انتشار</div>
+            <div class="detail-meta-value">۱۴۰۳</div>
+          </div>
+          <div class="detail-meta-item">
+            <div class="detail-meta-label">ناشر</div>
+            <div class="detail-meta-value">نشر محبوب</div>
+          </div>
+          <div class="detail-meta-item">
+            <div class="detail-meta-label">دسته‌بندی</div>
+            <div class="detail-meta-value">توسعه فردی</div>
+          </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="detail-tabs">
+          <div class="detail-tab-nav">
+            <button class="detail-tab-btn active" onclick="switchTab(0, this)">معرفی کتاب</button>
+            <button class="detail-tab-btn" onclick="switchTab(1, this)">مشخصات</button>
+            <button class="detail-tab-btn" onclick="switchTab(2, this)">نظرات کاربران</button>
+            <button class="detail-tab-btn" onclick="switchTab(3, this)">فهرست مطالب</button>
+          </div>
+
+          <!-- Tab 0: Description -->
+          <div class="detail-tab-content active" id="tab0">
+            <h4>درباره کتاب هنر یادگیری</h4>
+            <p>
+              جاش ویتزکین، قهرمان شطرنج و هنرهای رزمی، در این کتاب فوق‌العاده به بررسی فرآیند یادگیری
+              از دیدگاه شخصی و علمی می‌پردازد. او با تکیه بر تجربیات خود در دو رشته کاملاً متفاوت،
+              اصول بنیادین یادگیری عمیق را آشکار می‌کند.
+            </p>
+            <p>
+              این کتاب نه تنها برای ورزشکاران و بازیکنان شطرنج، بلکه برای هر کسی که می‌خواهد در هر
+              حوزه‌ای به تسلط واقعی دست یابد، نوشته شده است. ویتزکین نشان می‌دهد که چگونه می‌توان
+              با تمرین هدفمند، تفکر عمیق و مدیریت احساسات، به سطوح بالای عملکرد رسید.
+            </p>
+            <p>
+              خواننده در طول این کتاب با مفاهیمی مانند «سرمایه‌گذاری در زیان»، «ساختن فرم‌های کوچک»،
+              «استفاده از سکون فعال» و «یادگیری از شکست» آشنا می‌شود. هر فصل با مثال‌های واقعی از
+              زندگی نویسنده همراه است که خواندن آن را لذت‌بخش و الهام‌بخش می‌کند.
+            </p>
+          </div>
+
+          <!-- Tab 1: Specs -->
+          <div class="detail-tab-content" id="tab1">
+            <table class="specs-table">
+              <tr><td>عنوان</td><td>هنر یادگیری</td></tr>
+              <tr><td>نویسنده</td><td>جاش ویتزکین</td></tr>
+              <tr><td>مترجم</td><td>سارا احمدی</td></tr>
+              <tr><td>ناشر</td><td>نشر محبوب</td></tr>
+              <tr><td>سال انتشار</td><td>۱۴۰۳</td></tr>
+              <tr><td>تعداد صفحات</td><td>۲۸۴</td></tr>
+              <tr><td>شابک</td><td>978-964-123-456-7</td></tr>
+              <tr><td>قطع</td><td>رقعی</td></tr>
+              <tr><td>زبان</td><td>فارسی</td></tr>
+              <tr><td>موضوع</td><td>توسعه فردی، یادگیری</td></tr>
+              <tr><td>فرمت</td><td>متنی (الکترونیکی)</td></tr>
+            </table>
+          </div>
+
+          <!-- Tab 2: Comments -->
+          <div class="detail-tab-content" id="tab2">
+            <div class="comment-item">
+              <div class="comment-head">
+                <div class="comment-avatar">م</div>
+                <span class="comment-name">محمد رضایی</span>
+                <div class="comment-stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <span class="comment-date">۱۵ بهمن ۱۴۰۴</span>
+              </div>
+              <p class="comment-text">کتاب فوق‌العاده‌ای بود. مفاهیم یادگیری رو به شکل بسیار ملموس و کاربردی توضیح داده. خصوصاً فصل‌های مربوط به مدیریت احساسات خیلی تأثیرگذار بود. پیشنهاد می‌کنم حتماً بخوانید.</p>
+            </div>
+            <div class="comment-item">
+              <div class="comment-head">
+                <div class="comment-avatar">ز</div>
+                <span class="comment-name">زهرا کریمی</span>
+                <div class="comment-stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star"></i>
+                </div>
+                <span class="comment-date">۸ بهمن ۱۴۰۴</span>
+              </div>
+              <p class="comment-text">ترجمه روان و قابل‌فهمی داشت. داستان‌های شخصی نویسنده واقعاً جذاب بود. تنها ایرادم این بود که بعضی مفاهیم تکراری شده بودند ولی در مجموع عالی بود.</p>
+            </div>
+            <div class="comment-item">
+              <div class="comment-head">
+                <div class="comment-avatar">ع</div>
+                <span class="comment-name">علی محمدی</span>
+                <div class="comment-stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                </div>
+                <span class="comment-date">۲ بهمن ۱۴۰۴</span>
+              </div>
+              <p class="comment-text">برای هر کسی که به یادگیری و رشد فردی علاقه داره، این کتاب واجبه. من الان سه بار خوندمش و هر بار نکات جدیدی ازش یاد گرفتم.</p>
+            </div>
+          </div>
+
+          <!-- Tab 3: TOC -->
+          <div class="detail-tab-content" id="tab3">
+            <div style="line-height:2.4; font-size:14px; color:var(--text-secondary);">
+              <p><strong style="color:var(--text-primary)">پیشگفتار</strong></p>
+              <p><strong style="color:var(--text-primary)">فصل اول:</strong> مسیر شروع</p>
+              <p><strong style="color:var(--text-primary)">فصل دوم:</strong> از دست دادن معصومیت</p>
+              <p><strong style="color:var(--text-primary)">فصل سوم:</strong> دو رویکرد یادگیری</p>
+              <p><strong style="color:var(--text-primary)">فصل چهارم:</strong> عاشق بازی</p>
+              <p><strong style="color:var(--text-primary)">فصل پنجم:</strong> نرم‌ناحیه</p>
+              <p><strong style="color:var(--text-primary)">فصل ششم:</strong> استاد مبتدی</p>
+              <p><strong style="color:var(--text-primary)">فصل هفتم:</strong> تغییر شکل</p>
+              <p><strong style="color:var(--text-primary)">فصل هشتم:</strong> سرمایه‌گذاری در زیان</p>
+              <p><strong style="color:var(--text-primary)">فصل نهم:</strong> ساختن تریگر</p>
+              <p><strong style="color:var(--text-primary)">فصل دهم:</strong> هنر یادگیری</p>
+              <p><strong style="color:var(--text-primary)">سخن پایانی</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ Similar Books ═══ -->
+<section class="similar-section fade-up" style="background:var(--bg-primary)">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-title">کتاب‌های مشابه</span>
+      <a href="#" class="section-more">مشاهده همه <i class="bi bi-chevron-left"></i></a>
+    </div>
+    <div class="book-scroll-wrapper" id="similarBooks">
+      <button class="scroll-arrow arr-right"><i class="bi bi-chevron-right"></i></button>
+      <div class="book-scroll"></div>
+      <button class="scroll-arrow arr-left"><i class="bi bi-chevron-left"></i></button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ Footer ═══ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <div class="logo-icon"><i class="bi bi-book-half"></i></div>
+          <span class="logo-text">محبوب</span>
+        </a>
+        <p>سامانه جامع محبوب، مرکز نشر آثار متنی، صوتی و تصویری آیت‌الله نکونام مدّ ظلّه العالی.</p>
+      </div>
+      <div class="footer-col">
+        <h6>محبوب</h6>
+        <a href="about.html">درباره ما</a>
+        <a href="contact.html">تماس با ما</a>
+        <a href="terms.html">قوانین استفاده</a>
+        <a href="privacy.html">حریم خصوصی</a>
+      </div>
+      <div class="footer-col">
+        <h6>دسته‌بندی‌ها</h6>
+        <a href="#">آثار متنی</a>
+        <a href="#">آثار صوتی</a>
+        <a href="#">آثار تصویری</a>
+        <a href="#">سخنرانی‌ها</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© ۱۴۰۴ سامانه جامع محبوب. تمامی حقوق محفوظ است.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Sidebar + Bottom Nav (same as other pages) -->
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+<div class="mobile-sidebar" id="mobileSidebar">
+  <div class="sidebar-header">
+    <a href="index.html" class="logo"><div class="logo-icon" style="width:34px;height:34px;font-size:16px;"><i class="bi bi-book-half"></i></div><span class="logo-text" style="font-size:18px;">محبوب</span></a>
+    <button class="sidebar-close" onclick="toggleSidebar()"><i class="bi bi-x-lg"></i></button>
+  </div>
+  <div class="sidebar-body">
+    <a href="index.html" class="sidebar-nav-item"><i class="bi bi-house"></i> صفحه اصلی</a>
+    <a href="about.html" class="sidebar-nav-item"><i class="bi bi-info-circle"></i> درباره ما</a>
+    <a href="contact.html" class="sidebar-nav-item"><i class="bi bi-telephone"></i> تماس با ما</a>
+  </div>
+  <div class="sidebar-footer"><button class="login-btn"><i class="bi bi-person-circle"></i> ورود | ثبت نام</button></div>
+</div>
+<div class="mobile-bottom-nav">
+  <div class="bottom-nav-inner">
+    <a href="index.html" class="bottom-nav-item"><i class="bi bi-house-fill"></i><span>خانه</span></a>
+    <a href="#" class="bottom-nav-item"><i class="bi bi-grid"></i><span>دسته‌بندی</span></a>
+    <a href="#" class="bottom-nav-item"><i class="bi bi-search"></i><span>جستجو</span></a>
+    <a href="#" class="bottom-nav-item"><i class="bi bi-bookmarks"></i><span>کتابخانه</span></a>
+    <a href="#" class="bottom-nav-item"><i class="bi bi-person"></i><span>حساب من</span></a>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="app.js"></script>
+<script>
+// Tab switching
+function switchTab(idx, btn) {
+  document.querySelectorAll('.detail-tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.detail-tab-content').forEach(c => c.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tab' + idx).classList.add('active');
+}
+
+// Render similar books
+const similarData = [
+  {title:'ذهن مستحکم',author:'دیوید گاگینز',badge:''},
+  {title:'اثر مرکب',author:'دارن هاردی',badge:''},
+  {title:'عادت‌های اتمی',author:'جیمز کلیر',badge:'۲۷٪'},
+  {title:'قدرت سکوت',author:'ریچل کلارک',badge:'۱۰٪'},
+  {title:'نشخوار ذهنی',author:'مارک فریمن',badge:''},
+  {title:'آیندگی',author:'محمد طلوعی',badge:'۲۷٪'},
+  {title:'هنر ظریف بی‌خیالی',author:'مارک منسون',badge:''},
+  {title:'روانشناسی پول',author:'مورگان هاوسل',badge:''},
+];
+
+// Reuse functions from app.js
+if (typeof renderBooks === 'function') {
+  renderBooks('similarBooks', similarData, false);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مطالعه: هنر یادگیری | سامانه جامع محبوب</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="styles.css" rel="stylesheet">
+</head>
+<body class="reader-page">
+
+<!-- ═══ Reader Toolbar ═══ -->
+<div class="reader-toolbar">
+  <div class="reader-toolbar-right">
+    <a href="book-detail.html" class="reader-back-btn">
+      <i class="bi bi-arrow-right"></i>
+      <span>بازگشت</span>
+    </a>
+  </div>
+  <div class="reader-toolbar-center">
+    <div class="reader-book-title">هنر یادگیری — جاش ویتزکین</div>
+  </div>
+  <div class="reader-toolbar-left">
+    <!-- Font Size -->
+    <div style="position:relative">
+      <button class="reader-tool-btn" id="fontToggle" onclick="toggleFontPanel()" title="اندازه فونت">
+        <i class="bi bi-fonts"></i>
+      </button>
+      <div class="font-panel" id="fontPanel">
+        <div class="font-panel-label">اندازه متن</div>
+        <div class="font-size-controls">
+          <button class="font-size-btn" onclick="changeFontSize(-1)">−</button>
+          <span class="font-size-display" id="fontSizeDisplay">16</span>
+          <button class="font-size-btn" onclick="changeFontSize(1)">+</button>
+        </div>
+      </div>
+    </div>
+    <!-- Theme -->
+    <button class="reader-tool-btn" onclick="toggleTheme()" title="تغییر تم">
+      <i class="bi bi-moon-stars" id="themeIcon"></i>
+    </button>
+    <!-- Bookmark -->
+    <button class="reader-tool-btn" id="bookmarkBtn" onclick="toggleBookmark()" title="نشانه‌گذاری">
+      <i class="bi bi-bookmark"></i>
+    </button>
+  </div>
+</div>
+
+<!-- ═══ Reader Content ═══ -->
+<div class="reader-content-area">
+  <div class="reader-paper" id="readerPaper">
+    <div class="reader-chapter-title" id="chapterTitle">فصل اول: مسیر شروع</div>
+    <div class="reader-text" id="readerText">
+      <!-- Page content injected by JS -->
+    </div>
+    <div class="reader-page-indicator">
+      صفحه <span id="currentPageNum">۱</span> از <span id="totalPageNum">۱۰</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ Bottom Navigation Bar ═══ -->
+<div class="reader-bottom-bar">
+  <div class="reader-bottom-inner">
+    <div class="reader-page-nav">
+      <button class="reader-nav-btn" id="prevBtn" onclick="goPage(-1)" title="صفحه قبل">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+      <button class="reader-nav-btn" id="nextBtn" onclick="goPage(1)" title="صفحه بعد">
+        <i class="bi bi-chevron-left"></i>
+      </button>
+    </div>
+    <div class="reader-progress">
+      <div class="reader-progress-bar">
+        <div class="reader-progress-fill" id="progressFill" style="width:10%"></div>
+      </div>
+      <div class="reader-progress-text">
+        <span id="progressPercent">۱۰٪ خوانده شده</span>
+        <span id="progressPages">صفحه ۱ از ۱۰</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ Dictionary Popup ═══ -->
+<div class="dict-popup" id="dictPopup">
+  <div class="dict-popup-word" id="dictWord"></div>
+  <div class="dict-popup-item" onclick="searchDictionary()">
+    <i class="bi bi-book"></i> جستجو در دیکشنری
+  </div>
+  <div class="dict-popup-item" onclick="searchGoogle()">
+    <i class="bi bi-google"></i> جستجو در گوگل
+  </div>
+  <div class="dict-popup-item" onclick="copyText()">
+    <i class="bi bi-clipboard"></i> کپی متن
+  </div>
+  <div class="dict-popup-item" onclick="highlightSelection()">
+    <i class="bi bi-highlighter"></i> هایلایت
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════
+// BOOK PAGES DATA
+// ═══════════════════════════════════════════
+const chapters = [
+  { title: 'فصل اول: مسیر شروع', pages: [
+    `<p>من در سن شش سالگی با بازی شطرنج آشنا شدم. در پارک واشنگتن اسکوئر در نیویورک، مردی مسن‌تر از من پشت صفحه شطرنج نشسته بود و من مجذوب حرکت مهره‌ها شدم. آن لحظه، بدون آنکه بدانم، مسیر زندگی‌ام را تغییر داد.</p>
+<p>در ابتدا، شطرنج برایم فقط یک بازی بود. اما به مرور زمان متوجه شدم که پشت هر حرکت، دنیایی از تفکر و استراتژی نهفته است. یاد گرفتم که صبر کنم، تحلیل کنم و قبل از هر تصمیم، عواقب آن را بسنجم.</p>
+<p>پدرم نقش بسیار مهمی در مسیر یادگیری من داشت. او هرگز مرا مجبور به تمرین نکرد، بلکه فضایی آزاد برایم فراهم کرد تا با عشق و اشتیاق بازی کنم. این نکته کلیدی‌ترین درسی است که برای هر نوع یادگیری صدق می‌کند: عشق به فرآیند.</p>`,
+
+    `<p>وقتی نه سال داشتم، به اولین مسابقه رسمی‌ام رفتم. آن روز دلهره عجیبی داشتم. دست‌هایم می‌لرزید و قلبم تند می‌زد. اما همین که اولین حرکت را انجام دادم، آرامش عجیبی بر من حاکم شد.</p>
+<p>مسابقات به من یاد دادند که شکست بخشی طبیعی از یادگیری است. هر باختی، درسی ارزشمند در خود داشت. به مرور یاد گرفتم که به جای ترس از شکست، آن را به عنوان فرصتی برای رشد ببینم. این تغییر نگرش، تحول بزرگی در مسیر یادگیری‌ام ایجاد کرد.</p>
+<p>نکته مهمی که در این دوران آموختم، تفاوت بین «یادگیری سطحی» و «یادگیری عمیق» بود. بسیاری از بازیکنان جوان سعی می‌کردند تعداد زیادی گشایش را حفظ کنند، اما من ترجیح دادم مفاهیم بنیادین را عمیقاً درک کنم.</p>`
+  ]},
+  { title: 'فصل دوم: از دست دادن معصومیت', pages: [
+    `<p>هر چه بیشتر پیشرفت می‌کردم، فشارهای بیرونی بیشتر می‌شد. رسانه‌ها، انتظارات والدین دیگران و حتی حسادت رقبا، همه و همه بخشی از مسیر شدند. اما بزرگ‌ترین چالش من، حفظ عشق اولیه به بازی بود.</p>
+<p>وقتی فیلمی بر اساس زندگی من ساخته شد، اوضاع پیچیده‌تر شد. مردم مرا می‌شناختند و انتظارات بالایی از من داشتند. این فشار خارجی، لذت طبیعی بازی را کم‌رنگ کرد. من باید راهی پیدا می‌کردم تا دوباره آن شور و اشتیاق اولیه را زنده کنم.</p>
+<p>در این مرحله بود که به یک درس حیاتی رسیدم: یادگیری واقعی زمانی اتفاق می‌افتد که ما از «منطقه امن» خود خارج شویم. وقتی همه چیز راحت و آسان است، رشد واقعی اتفاق نمی‌افتد.</p>`,
+
+    `<p>تصمیم گرفتم مسیر جدیدی را آغاز کنم. به سمت هنرهای رزمی رفتم و «تای‌چی چوان» را شروع کردم. این انتقال، یکی از مهم‌ترین تجربه‌های یادگیری زندگی من بود.</p>
+<p>در تای‌چی، باید از صفر شروع می‌کردم. من که قهرمان شطرنج بودم، حالا مبتدی‌ترین شاگرد کلاس بودم. این تجربه فروتنی عمیقی به من بخشید. فهمیدم که مبتدی بودن، نه ضعف، بلکه فرصتی طلایی برای یادگیری بدون پیش‌فرض است.</p>
+<p>جالب اینجاست که بسیاری از اصولی که در شطرنج آموخته بودم، در تای‌چی هم کاربرد داشتند. مفاهیمی مانند تمرکز، صبر، خواندن حرکات حریف و مدیریت انرژی در هر دو رشته مشترک بودند. این نشان می‌داد که اصول یادگیری فراتر از رشته‌های خاص هستند.</p>`
+  ]},
+  { title: 'فصل سوم: دو رویکرد یادگیری', pages: [
+    `<p>در طول سال‌ها تجربه، به این نتیجه رسیدم که دو رویکرد اصلی برای یادگیری وجود دارد. رویکرد اول، «نظریه ذات» است. در این دیدگاه، فرد باور دارد که توانایی‌ها ذاتی و ثابت هستند: یا با استعداد به دنیا آمده‌ای یا نیامده‌ای.</p>
+<p>رویکرد دوم، «نظریه رشد» است. در این دیدگاه، فرد باور دارد که توانایی‌ها قابل توسعه هستند و با تلاش و تمرین می‌توان پیشرفت کرد. تحقیقات روانشناسی مدرن نشان داده که افرادی با ذهنیت رشد، عملکرد بسیار بهتری دارند.</p>
+<p>وقتی کودکی را به خاطر «باهوش بودن» تحسین می‌کنیم، ناخواسته او را به سمت نظریه ذات سوق می‌دهیم. اما وقتی تلاش و فرآیند یادگیری او را تحسین می‌کنیم، ذهنیت رشد را در او تقویت می‌کنیم. این تفاوت ظریف، تأثیر بسیار بزرگی بر آینده فرد دارد.</p>`,
+
+    `<p>من در مسیر خودم هر دو رویکرد را تجربه کردم. دوره‌هایی بود که فکر می‌کردم «من استعداد ذاتی دارم» و دوره‌هایی که متوجه شدم بدون تلاش مستمر، هیچ استعدادی کافی نیست.</p>
+<p>یکی از مهم‌ترین لحظات زندگی من وقتی بود که در یک مسابقه مهم شکست خوردم. اگر با ذهنیت ذات به این شکست نگاه می‌کردم، نتیجه این بود: «من دیگر استعداد ندارم.» اما با ذهنیت رشد، توانستم تحلیل کنم که کجا اشتباه کردم و چگونه می‌توانم بهتر شوم.</p>
+<p>سرمایه‌گذاری در زیان یعنی همین: به جای فرار از شکست، به استقبال آن بروید و از آن درس بگیرید. هر شکست، نقشه‌ای است که نقاط ضعف شما را نشان می‌دهد و مسیر پیشرفت را روشن می‌کند.</p>`
+  ]},
+  { title: 'فصل چهارم: عاشق بازی', pages: [
+    `<p>عشق به فرآیند یادگیری، مهم‌ترین عامل موفقیت بلندمدت است. بسیاری از افراد فقط به نتیجه نهایی فکر می‌کنند: مدرک، مدال، رتبه. اما کسانی که واقعاً به اوج می‌رسند، عاشق خود مسیر هستند.</p>
+<p>من در شطرنج و تای‌چی یاد گرفتم که لذت واقعی در لحظه تمرین و کشف است. وقتی ساعت‌ها روی یک پوزیسیون شطرنج کار می‌کردم یا یک حرکت تای‌چی را صدها بار تکرار می‌کردم، به جایی می‌رسیدم که زمان معنای خود را از دست می‌داد.</p>
+<p>این حالت «غرق شدن» یا «فلو» است. حالتی که ذهن و بدن هماهنگ می‌شوند و شما کاملاً در لحظه حاضر هستید. دستیابی به این حالت، هم هدف و هم پاداش یادگیری عمیق است.</p>`
+  ]},
+  { title: 'فصل پنجم: نرم‌ناحیه', pages: [
+    `<p>مفهوم «نرم‌ناحیه» یکی از مهم‌ترین کشفیات من در مسیر یادگیری بود. نرم‌ناحیه به آن لحظاتی اشاره دارد که همه چیز بر وفق مراد نیست: سر و صدا، فشار روانی، خستگی یا هر عامل مزاحم دیگر.</p>
+<p>بسیاری از افراد در شرایط ایده‌آل عملکرد خوبی دارند، اما وقتی شرایط سخت می‌شود، عملکردشان افت می‌کند. رمز موفقیت واقعی، توانایی حفظ کیفیت عملکرد در شرایط نامساعد است.</p>
+<p>من یاد گرفتم که به جای تلاش برای حذف عوامل مزاحم، از آن‌ها به عنوان ابزار تمرین استفاده کنم. وقتی در محیط پر سر و صدا تمرین می‌کنید، تمرکز شما قوی‌تر می‌شود. وقتی خسته هستید و باز هم تمرین می‌کنید، ذهنتان مقاوم‌تر می‌شود. نرم‌ناحیه، دشمن نیست، بلکه بهترین معلم است.</p>`
+  ]}
+];
+
+// Flatten all pages
+const allPages = [];
+const pageChapterMap = [];
+chapters.forEach((ch, ci) => {
+  ch.pages.forEach((pg, pi) => {
+    allPages.push(pg);
+    pageChapterMap.push(ci);
+  });
+});
+
+const TOTAL = allPages.length;
+let currentPage = 0;
+let fontSize = 16;
+
+// ═══════════════════════════════════════════
+// PAGE RENDERING
+// ═══════════════════════════════════════════
+function renderPage() {
+  const text = document.getElementById('readerText');
+  const title = document.getElementById('chapterTitle');
+  text.innerHTML = allPages[currentPage];
+  title.textContent = chapters[pageChapterMap[currentPage]].title;
+  text.style.fontSize = fontSize + 'px';
+
+  // Convert numbers to Persian
+  const pn = n => String(n).replace(/\d/g, d => '۰۱۲۳۴۵۶۷۸۹'[d]);
+
+  document.getElementById('currentPageNum').textContent = pn(currentPage + 1);
+  document.getElementById('totalPageNum').textContent = pn(TOTAL);
+  document.getElementById('progressPages').textContent = `صفحه ${pn(currentPage + 1)} از ${pn(TOTAL)}`;
+
+  const pct = Math.round(((currentPage + 1) / TOTAL) * 100);
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressPercent').textContent = pn(pct) + '٪ خوانده شده';
+
+  document.getElementById('prevBtn').disabled = currentPage === 0;
+  document.getElementById('nextBtn').disabled = currentPage === TOTAL - 1;
+
+  // Scroll to top
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  hideDict();
+}
+
+function goPage(dir) {
+  const next = currentPage + dir;
+  if (next >= 0 && next < TOTAL) {
+    currentPage = next;
+    renderPage();
+  }
+}
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') goPage(1);
+  if (e.key === 'ArrowRight' || e.key === 'ArrowUp') goPage(-1);
+});
+
+// ═══════════════════════════════════════════
+// FONT SIZE
+// ═══════════════════════════════════════════
+function toggleFontPanel() {
+  document.getElementById('fontPanel').classList.toggle('show');
+}
+
+function changeFontSize(delta) {
+  fontSize = Math.max(12, Math.min(28, fontSize + delta));
+  document.getElementById('readerText').style.fontSize = fontSize + 'px';
+  const pn = n => String(n).replace(/\d/g, d => '۰۱۲۳۴۵۶۷۸۹'[d]);
+  document.getElementById('fontSizeDisplay').textContent = pn(fontSize);
+}
+
+// Close font panel on outside click
+document.addEventListener('click', (e) => {
+  const fp = document.getElementById('fontPanel');
+  const ft = document.getElementById('fontToggle');
+  if (fp && ft && !fp.contains(e.target) && !ft.contains(e.target)) {
+    fp.classList.remove('show');
+  }
+});
+
+// ═══════════════════════════════════════════
+// THEME TOGGLE
+// ═══════════════════════════════════════════
+function toggleTheme() {
+  const b = document.body, i = document.getElementById('themeIcon');
+  if (b.getAttribute('data-theme') === 'dark') {
+    b.removeAttribute('data-theme');
+    i.className = 'bi bi-moon-stars';
+    localStorage.setItem('mahboob-theme', 'light');
+  } else {
+    b.setAttribute('data-theme', 'dark');
+    i.className = 'bi bi-sun-fill';
+    localStorage.setItem('mahboob-theme', 'dark');
+  }
+}
+(function() {
+  const s = localStorage.getItem('mahboob-theme');
+  if (s === 'dark') {
+    document.body.setAttribute('data-theme', 'dark');
+    const i = document.getElementById('themeIcon');
+    if (i) i.className = 'bi bi-sun-fill';
+  }
+})();
+
+// ═══════════════════════════════════════════
+// BOOKMARK
+// ═══════════════════════════════════════════
+function toggleBookmark() {
+  const btn = document.getElementById('bookmarkBtn');
+  const icon = btn.querySelector('i');
+  if (icon.classList.contains('bi-bookmark')) {
+    icon.className = 'bi bi-bookmark-fill';
+    btn.classList.add('active');
+  } else {
+    icon.className = 'bi bi-bookmark';
+    btn.classList.remove('active');
+  }
+}
+
+// ═══════════════════════════════════════════
+// RIGHT-CLICK DISABLED
+// ═══════════════════════════════════════════
+document.addEventListener('contextmenu', (e) => {
+  e.preventDefault();
+  return false;
+});
+
+// ═══════════════════════════════════════════
+// CUSTOM SELECTION POPUP / DICTIONARY
+// ═══════════════════════════════════════════
+let selectedText = '';
+
+function hideDict() {
+  document.getElementById('dictPopup').classList.remove('show');
+}
+
+function showDictPopup(x, y, text) {
+  const popup = document.getElementById('dictPopup');
+  const word = document.getElementById('dictWord');
+  selectedText = text.trim();
+
+  if (!selectedText || selectedText.length < 1) { hideDict(); return; }
+
+  // Truncate display
+  word.textContent = selectedText.length > 30 ? selectedText.substring(0, 30) + '…' : selectedText;
+
+  // Position popup
+  const pw = 200, ph = 180;
+  let px = x - pw / 2;
+  let py = y - ph - 12;
+
+  // Keep in viewport
+  if (px < 8) px = 8;
+  if (px + pw > window.innerWidth - 8) px = window.innerWidth - pw - 8;
+  if (py < 8) py = y + 20; // show below if no room above
+
+  popup.style.left = px + 'px';
+  popup.style.top = py + 'px';
+  popup.classList.add('show');
+}
+
+// Desktop: mouseup
+document.addEventListener('mouseup', (e) => {
+  // Small delay so selection finalizes
+  setTimeout(() => {
+    const sel = window.getSelection();
+    const text = sel.toString().trim();
+    if (text.length > 0 && document.getElementById('readerText').contains(sel.anchorNode)) {
+      const range = sel.getRangeAt(0);
+      const rect = range.getBoundingClientRect();
+      showDictPopup(rect.left + rect.width / 2, rect.top + window.scrollY, text);
+    } else if (!document.getElementById('dictPopup').contains(e.target)) {
+      hideDict();
+    }
+  }, 10);
+});
+
+// Mobile: selectionchange (fires on touch selection)
+let selectionTimeout;
+document.addEventListener('selectionchange', () => {
+  clearTimeout(selectionTimeout);
+  selectionTimeout = setTimeout(() => {
+    const sel = window.getSelection();
+    const text = sel.toString().trim();
+    if (text.length > 0 && document.getElementById('readerText').contains(sel.anchorNode)) {
+      try {
+        const range = sel.getRangeAt(0);
+        const rect = range.getBoundingClientRect();
+        showDictPopup(rect.left + rect.width / 2, rect.top + window.scrollY, text);
+      } catch(e) {}
+    }
+  }, 300);
+});
+
+// Hide on tap elsewhere
+document.addEventListener('touchstart', (e) => {
+  if (!document.getElementById('dictPopup').contains(e.target)) {
+    // Don't hide if selecting
+    setTimeout(() => {
+      const sel = window.getSelection().toString().trim();
+      if (!sel) hideDict();
+    }, 100);
+  }
+});
+
+// ═══════════════════════════════════════════
+// DICTIONARY ACTIONS
+// ═══════════════════════════════════════════
+function searchDictionary() {
+  if (selectedText) {
+    window.open('https://www.vajehyab.com/?q=' + encodeURIComponent(selectedText), '_blank');
+  }
+  hideDict();
+  window.getSelection().removeAllRanges();
+}
+
+function searchGoogle() {
+  if (selectedText) {
+    window.open('https://www.google.com/search?q=' + encodeURIComponent(selectedText), '_blank');
+  }
+  hideDict();
+  window.getSelection().removeAllRanges();
+}
+
+function copyText() {
+  if (selectedText) {
+    navigator.clipboard.writeText(selectedText).catch(() => {});
+  }
+  hideDict();
+  window.getSelection().removeAllRanges();
+}
+
+function highlightSelection() {
+  try {
+    const sel = window.getSelection();
+    if (sel.rangeCount > 0) {
+      const range = sel.getRangeAt(0);
+      const mark = document.createElement('mark');
+      mark.style.background = 'rgba(232,97,77,0.25)';
+      mark.style.borderRadius = '3px';
+      mark.style.padding = '0 2px';
+      range.surroundContents(mark);
+    }
+  } catch(e) {}
+  hideDict();
+  window.getSelection().removeAllRanges();
+}
+
+// ═══════════════════════════════════════════
+// SWIPE NAVIGATION (Mobile)
+// ═══════════════════════════════════════════
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener('touchstart', (e) => {
+  touchStartX = e.changedTouches[0].screenX;
+}, { passive: true });
+
+document.addEventListener('touchend', (e) => {
+  touchEndX = e.changedTouches[0].screenX;
+  const diff = touchStartX - touchEndX;
+  // Only trigger if no text is selected
+  if (window.getSelection().toString().trim()) return;
+  if (Math.abs(diff) > 80) {
+    if (diff > 0) goPage(1);  // swipe left → next page (RTL)
+    else goPage(-1);           // swipe right → prev page
+  }
+}, { passive: true });
+
+// ═══════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════
+renderPage();
+</script>
+</body>
+</html>

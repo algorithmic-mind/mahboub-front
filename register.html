@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ورود و ثبت‌نام | سامانه جامع محبوب</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="styles.css" rel="stylesheet">
+<style>
+/* ═══ Register Page Styles ═══ */
+.register-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  background: var(--bg-secondary);
+  position: relative;
+  overflow: hidden;
+}
+.register-page::before {
+  content: '';
+  position: absolute;
+  top: -30%;
+  right: -20%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232,97,77,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.register-page::after {
+  content: '';
+  position: absolute;
+  bottom: -20%;
+  left: -15%;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232,97,77,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.register-card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--bg-primary);
+  border-radius: 24px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+  padding: 40px 36px;
+  position: relative;
+  z-index: 2;
+}
+
+.register-logo {
+  text-align: center;
+  margin-bottom: 28px;
+}
+.register-logo .logo-icon {
+  width: 56px;
+  height: 56px;
+  font-size: 24px;
+  margin: 0 auto 12px;
+}
+.register-logo h1 {
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.register-logo p {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* Step Indicator */
+.step-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 32px;
+}
+.step-dot {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-muted);
+  background: var(--bg-secondary);
+  transition: all 0.4s ease;
+  position: relative;
+  z-index: 2;
+}
+.step-dot.active {
+  background: var(--melon);
+  border-color: var(--melon);
+  color: white;
+  box-shadow: 0 4px 14px rgba(232,97,77,0.3);
+}
+.step-dot.done {
+  background: #10B981;
+  border-color: #10B981;
+  color: white;
+}
+.step-line {
+  width: 60px;
+  height: 2px;
+  background: var(--border-color);
+  transition: background 0.4s ease;
+}
+.step-line.active { background: var(--melon); }
+
+/* Phone Input */
+.phone-input-wrap {
+  position: relative;
+  margin-bottom: 20px;
+}
+.phone-input {
+  width: 100%;
+  height: 56px;
+  border: 2px solid var(--border-color);
+  border-radius: 16px;
+  padding: 0 20px;
+  font-family: 'Vazirmatn';
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  text-align: center;
+  outline: none;
+  transition: all 0.3s ease;
+}
+.phone-input:focus {
+  border-color: var(--melon);
+  background: var(--bg-primary);
+  box-shadow: 0 0 0 4px rgba(232,97,77,0.1);
+}
+.phone-input::placeholder { letter-spacing: 1px; font-weight: 400; color: var(--text-muted); font-size: 14px; }
+
+/* OTP Code Inputs */
+.otp-wrap {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  direction: ltr;
+  margin-bottom: 20px;
+}
+.otp-input {
+  width: 54px;
+  height: 60px;
+  border: 2px solid var(--border-color);
+  border-radius: 14px;
+  text-align: center;
+  font-family: 'Vazirmatn';
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+  outline: none;
+  transition: all 0.3s ease;
+  caret-color: var(--melon);
+}
+.otp-input:focus {
+  border-color: var(--melon);
+  background: var(--bg-primary);
+  box-shadow: 0 0 0 4px rgba(232,97,77,0.1);
+  transform: scale(1.05);
+}
+.otp-input.filled {
+  border-color: var(--melon);
+  background: var(--melon-bg);
+}
+.otp-input.error {
+  border-color: #EF4444;
+  background: #FEF2F2;
+  animation: shake 0.4s ease;
+}
+@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+
+/* Timer & Resend */
+.otp-info {
+  text-align: center;
+  margin-bottom: 24px;
+}
+.otp-phone-display {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+.otp-phone-display strong { color: var(--text-primary); display: inline-block; }
+.otp-timer {
+  font-size: 14px;
+  color: var(--melon);
+  font-weight: 700;
+  display: inline-block;
+}
+.otp-resend {
+  font-size: 13px;
+  color: var(--text-muted);
+  cursor: default;
+}
+.otp-resend.active {
+  color: var(--melon);
+  cursor: pointer;
+  font-weight: 600;
+}
+.otp-resend.active:hover { text-decoration: underline; }
+
+.otp-edit-phone {
+  font-size: 12px;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 6px;
+  transition: var(--transition);
+}
+.otp-edit-phone:hover { color: var(--melon); }
+
+/* Submit Button */
+.register-btn {
+  width: 100%;
+  height: 54px;
+  background: var(--melon-gradient);
+  color: white;
+  border: none;
+  border-radius: 16px;
+  font-family: 'Vazirmatn';
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(232,97,77,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.register-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(232,97,77,0.4); }
+.register-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
+.register-btn .spinner {
+  width: 20px; height: 20px;
+  border: 3px solid rgba(255,255,255,0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  display: none;
+}
+.register-btn.loading .spinner { display: block; }
+.register-btn.loading span { display: none; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Success state */
+.register-success {
+  text-align: center;
+  display: none;
+}
+.register-success.show { display: block; }
+.success-icon {
+  width: 80px; height: 80px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #10B981, #059669);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  color: white;
+  box-shadow: 0 8px 30px rgba(16,185,129,0.3);
+  animation: popIn 0.5s cubic-bezier(0.34,1.56,0.64,1);
+}
+@keyframes popIn {
+  0% { transform: scale(0); }
+  100% { transform: scale(1); }
+}
+.success-title { font-size: 20px; font-weight: 800; color: var(--text-primary); margin-bottom: 8px; }
+.success-desc { font-size: 14px; color: var(--text-secondary); margin-bottom: 24px; }
+.success-home-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 36px;
+  background: var(--melon-gradient);
+  color: white;
+  border-radius: 16px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(232,97,77,0.3);
+}
+.success-home-btn:hover { color: white; transform: translateY(-2px); }
+
+/* Terms link */
+.register-terms {
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 20px;
+  line-height: 1.8;
+}
+.register-terms a { color: var(--melon); text-decoration: none; font-weight: 600; }
+.register-terms a:hover { text-decoration: underline; }
+
+/* Back to home */
+.register-back {
+  text-align: center;
+  margin-top: 20px;
+}
+.register-back a {
+  font-size: 13px;
+  color: var(--text-muted);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+}
+.register-back a:hover { color: var(--melon); }
+
+/* Theme toggle for register */
+.register-theme-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  background: var(--bg-primary);
+  color: var(--text-secondary);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+.register-theme-btn:hover { color: var(--melon); border-color: var(--melon); }
+
+@media (max-width: 480px) {
+  .register-card { padding: 30px 24px; border-radius: 20px; }
+  .otp-input { width: 48px; height: 54px; font-size: 20px; }
+  .otp-wrap { gap: 8px; }
+}
+</style>
+</head>
+<body>
+
+<button class="register-theme-btn" onclick="toggleTheme()" title="تغییر تم">
+  <i class="bi bi-moon-stars" id="themeIcon"></i>
+</button>
+
+<div class="register-page">
+  <div class="register-card">
+
+    <!-- Logo -->
+    <div class="register-logo">
+      <div class="logo-icon"><i class="bi bi-book-half"></i></div>
+      <h1>سامانه جامع محبوب</h1>
+      <p>ورود یا ثبت‌نام با شماره موبایل</p>
+    </div>
+
+    <!-- Step Indicator -->
+    <div class="step-indicator">
+      <div class="step-dot active" id="step1Dot">۱</div>
+      <div class="step-line" id="stepLine"></div>
+      <div class="step-dot" id="step2Dot">۲</div>
+    </div>
+
+    <!-- ═══ Step 1: Phone Number ═══ -->
+    <div id="step1">
+      <div class="phone-input-wrap">
+        <input type="tel" class="phone-input" id="phoneInput"
+               placeholder="شماره موبایل خود را وارد کنید" maxlength="11"
+               autocomplete="tel">
+      </div>
+      <button class="register-btn" id="sendCodeBtn" onclick="sendCode()" disabled>
+        <div class="spinner"></div>
+        <span><i class="bi bi-send-fill"></i> ارسال کد تأیید</span>
+      </button>
+      <div class="register-terms">
+        با ورود و ثبت‌نام، <a href="terms.html">قوانین استفاده</a> و
+        <a href="privacy.html">حریم خصوصی</a> را می‌پذیرم.
+      </div>
+    </div>
+
+    <!-- ═══ Step 2: OTP Verification ═══ -->
+    <div id="step2" style="display:none">
+      <div class="otp-info">
+        <div class="otp-phone-display">
+          کد تأیید ارسال شد به <strong id="displayPhone"></strong>
+        </div>
+        <div class="otp-edit-phone" onclick="goBackToPhone()">
+          <i class="bi bi-pencil"></i> ویرایش شماره
+        </div>
+      </div>
+
+      <div class="otp-wrap">
+        <input type="tel" class="otp-input" maxlength="1" data-idx="0" oninput="otpInput(this)" onkeydown="otpKeydown(event,this)" autofocus>
+        <input type="tel" class="otp-input" maxlength="1" data-idx="1" oninput="otpInput(this)" onkeydown="otpKeydown(event,this)">
+        <input type="tel" class="otp-input" maxlength="1" data-idx="2" oninput="otpInput(this)" onkeydown="otpKeydown(event,this)">
+        <input type="tel" class="otp-input" maxlength="1" data-idx="3" oninput="otpInput(this)" onkeydown="otpKeydown(event,this)">
+        <input type="tel" class="otp-input" maxlength="1" data-idx="4" oninput="otpInput(this)" onkeydown="otpKeydown(event,this)">
+      </div>
+
+      <div class="otp-info">
+        <div id="timerWrap">
+          <span class="otp-resend">ارسال مجدد تا </span>
+          <span class="otp-timer" id="timerDisplay">02:00</span>
+        </div>
+        <div id="resendWrap" style="display:none">
+          <span class="otp-resend active" onclick="resendCode()">
+            <i class="bi bi-arrow-clockwise"></i> ارسال مجدد کد
+          </span>
+        </div>
+      </div>
+
+      <button class="register-btn" id="verifyBtn" onclick="verifyCode()" disabled>
+        <div class="spinner"></div>
+        <span><i class="bi bi-shield-check"></i> تأیید و ورود</span>
+      </button>
+    </div>
+
+    <!-- ═══ Step 3: Success ═══ -->
+    <div class="register-success" id="step3">
+      <div class="success-icon"><i class="bi bi-check-lg"></i></div>
+      <div class="success-title">خوش آمدید!</div>
+      <div class="success-desc">ثبت‌نام شما با موفقیت انجام شد.<br>اکنون می‌توانید از تمامی امکانات محبوب استفاده کنید.</div>
+      <a href="index.html" class="success-home-btn">
+        <i class="bi bi-house-fill"></i>
+        ورود به سامانه
+      </a>
+    </div>
+
+    <div class="register-back" id="backLink">
+      <a href="index.html"><i class="bi bi-arrow-right"></i> بازگشت به صفحه اصلی</a>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// ═══ Theme ═══
+function toggleTheme() {
+  const b = document.body, i = document.getElementById('themeIcon');
+  if (b.getAttribute('data-theme') === 'dark') {
+    b.removeAttribute('data-theme'); i.className = 'bi bi-moon-stars';
+    localStorage.setItem('mahboob-theme','light');
+  } else {
+    b.setAttribute('data-theme','dark'); i.className = 'bi bi-sun-fill';
+    localStorage.setItem('mahboob-theme','dark');
+  }
+}
+(function(){
+  const s = localStorage.getItem('mahboob-theme');
+  if(s==='dark'){document.body.setAttribute('data-theme','dark');document.getElementById('themeIcon').className='bi bi-sun-fill'}
+})();
+
+// ═══ Digit Conversion ═══
+const toPersian = s => String(s).replace(/\d/g, d => '۰۱۲۳۴۵۶۷۸۹'[d]);
+const toEnglish = s => String(s).replace(/[۰-۹]/g, d => '۰۱۲۳۴۵۶۷۸۹'.indexOf(d));
+
+// ═══ Phone Validation ═══
+const phoneInput = document.getElementById('phoneInput');
+const sendBtn = document.getElementById('sendCodeBtn');
+let rawPhone = ''; // store English digits
+
+phoneInput.addEventListener('input', () => {
+  // Extract only digits (both Persian & English)
+  let eng = toEnglish(phoneInput.value).replace(/[^0-9]/g, '').slice(0, 11);
+  rawPhone = eng;
+  // Display as Persian
+  phoneInput.value = toPersian(eng);
+  // Validate: must be 09xxxxxxxxx (11 digits)
+  sendBtn.disabled = !(eng.length === 11 && /^09\d{9}$/.test(eng));
+});
+phoneInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' && !sendBtn.disabled) sendCode();
+});
+
+// ═══ Send Code ═══
+function sendCode() {
+  if (rawPhone.length < 11) return;
+
+  sendBtn.classList.add('loading');
+  sendBtn.disabled = true;
+
+  // Simulate API call
+  setTimeout(() => {
+    sendBtn.classList.remove('loading');
+
+    // Move to step 2
+    document.getElementById('step1').style.display = 'none';
+    document.getElementById('step2').style.display = 'block';
+    document.getElementById('step1Dot').classList.remove('active');
+    document.getElementById('step1Dot').classList.add('done');
+    document.getElementById('step1Dot').innerHTML = '<i class="bi bi-check"></i>';
+    document.getElementById('stepLine').classList.add('active');
+    document.getElementById('step2Dot').classList.add('active');
+    document.getElementById('displayPhone').textContent = toPersian(rawPhone);
+
+    // Focus first OTP input
+    document.querySelector('.otp-input[data-idx="0"]').focus();
+
+    // Start timer
+    startTimer(120);
+  }, 1500);
+}
+
+// ═══ OTP Input Logic ═══
+function otpInput(el) {
+  let val = toEnglish(el.value).replace(/[^0-9]/g, '');
+  el.value = val ? toPersian(val) : '';
+  if (el.value) {
+    el.classList.add('filled');
+    const idx = parseInt(el.dataset.idx);
+    if (idx < 4) {
+      document.querySelector(`.otp-input[data-idx="${idx+1}"]`).focus();
+    }
+  } else {
+    el.classList.remove('filled');
+  }
+  checkOTPComplete();
+}
+
+function otpKeydown(e, el) {
+  const idx = parseInt(el.dataset.idx);
+  if (e.key === 'Backspace' && !el.value && idx > 0) {
+    const prev = document.querySelector(`.otp-input[data-idx="${idx-1}"]`);
+    prev.value = '';
+    prev.classList.remove('filled');
+    prev.focus();
+  }
+  if (e.key === 'Enter') verifyCode();
+}
+
+function checkOTPComplete() {
+  const inputs = document.querySelectorAll('.otp-input');
+  let code = '';
+  inputs.forEach(i => code += i.value);
+  document.getElementById('verifyBtn').disabled = code.length < 5;
+}
+
+function getOTPCode() {
+  let code = '';
+  document.querySelectorAll('.otp-input').forEach(i => code += toEnglish(i.value));
+  return code.replace(/[^0-9]/g, '');
+}
+
+// ═══ Timer ═══
+let timerInterval;
+function startTimer(seconds) {
+  clearInterval(timerInterval);
+  document.getElementById('timerWrap').style.display = '';
+  document.getElementById('resendWrap').style.display = 'none';
+
+  let remaining = seconds;
+  function update() {
+    const m = Math.floor(remaining / 60);
+    const s = remaining % 60;
+    const pn = n => String(n).padStart(2, '0');
+    document.getElementById('timerDisplay').textContent = toPersian(`${pn(m)}:${pn(s)}`);
+
+    if (remaining <= 0) {
+      clearInterval(timerInterval);
+      document.getElementById('timerWrap').style.display = 'none';
+      document.getElementById('resendWrap').style.display = '';
+    }
+    remaining--;
+  }
+  update();
+  timerInterval = setInterval(update, 1000);
+}
+
+function resendCode() {
+  // Clear OTP
+  document.querySelectorAll('.otp-input').forEach(i => {
+    i.value = '';
+    i.classList.remove('filled', 'error');
+  });
+  document.querySelector('.otp-input[data-idx="0"]').focus();
+  document.getElementById('verifyBtn').disabled = true;
+
+  startTimer(120);
+}
+
+// ═══ Verify Code ═══
+function verifyCode() {
+  const code = getOTPCode();
+  if (code.length < 5) return;
+
+  const btn = document.getElementById('verifyBtn');
+  btn.classList.add('loading');
+  btn.disabled = true;
+
+  // Simulate verification
+  setTimeout(() => {
+    btn.classList.remove('loading');
+
+    // For demo: any 5 digits work. Show error for "00000"
+    if (code === '00000') {
+      document.querySelectorAll('.otp-input').forEach(i => {
+        i.classList.add('error');
+        i.value = '';
+        i.classList.remove('filled');
+      });
+      btn.disabled = true;
+      setTimeout(() => {
+        document.querySelectorAll('.otp-input').forEach(i => i.classList.remove('error'));
+        document.querySelector('.otp-input[data-idx="0"]').focus();
+      }, 600);
+      return;
+    }
+
+    // Success!
+    clearInterval(timerInterval);
+    document.getElementById('step2').style.display = 'none';
+    document.getElementById('step2Dot').classList.remove('active');
+    document.getElementById('step2Dot').classList.add('done');
+    document.getElementById('step2Dot').innerHTML = '<i class="bi bi-check"></i>';
+    document.querySelector('.step-indicator').style.display = 'none';
+    document.getElementById('backLink').style.display = 'none';
+
+    const success = document.getElementById('step3');
+    success.classList.add('show');
+  }, 1800);
+}
+
+// ═══ Go Back to Phone ═══
+function goBackToPhone() {
+  clearInterval(timerInterval);
+  document.getElementById('step2').style.display = 'none';
+  document.getElementById('step1').style.display = 'block';
+  document.getElementById('step1Dot').classList.add('active');
+  document.getElementById('step1Dot').classList.remove('done');
+  document.getElementById('step1Dot').innerHTML = '۱';
+  document.getElementById('stepLine').classList.remove('active');
+  document.getElementById('step2Dot').classList.remove('active');
+
+  // Clear OTP
+  document.querySelectorAll('.otp-input').forEach(i => {
+    i.value = '';
+    i.classList.remove('filled', 'error');
+  });
+
+  sendBtn.disabled = false;
+  phoneInput.focus();
+}
+
+// Handle paste for OTP
+document.addEventListener('paste', (e) => {
+  if (!document.querySelector('.otp-input:focus')) return;
+  e.preventDefault();
+  const pasted = (e.clipboardData || window.clipboardData).getData('text').replace(/[۰-۹]/g, d => '۰۱۲۳۴۵۶۷۸۹'.indexOf(d)).replace(/\D/g, '').slice(0, 5);
+  if (pasted.length === 5) {
+    document.querySelectorAll('.otp-input').forEach((input, i) => {
+      input.value = toPersian(pasted[i]);
+      input.classList.add('filled');
+    });
+    document.querySelector('.otp-input[data-idx="4"]').focus();
+    checkOTPComplete();
+  }
+});
+</script>
+</body>
+</html>
