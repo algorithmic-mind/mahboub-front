@@ -1097,6 +1097,161 @@ body {
 .discover-tag:hover { background: white; color: var(--melon); border-color: white; }
 
 /* ═══════════════════════════════════════════
+   AI CHAT CTA BOX
+   ═══════════════════════════════════════════ */
+.ai-cta-box {
+  background: linear-gradient(135deg, #312E81 0%, #4338CA 40%, #6366F1 70%, #818CF8 100%);
+  border-radius: var(--radius-xl);
+  padding: 52px 40px;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.ai-cta-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.ai-particle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+}
+.ai-particle.p1 { width: 260px; height: 260px; top: -80px; left: -60px; }
+.ai-particle.p2 { width: 180px; height: 180px; bottom: -50px; right: -40px; background: rgba(255,255,255,0.05); }
+.ai-particle.p3 { width: 60px; height: 60px; top: 30%; left: 15%; background: rgba(255,255,255,0.08); animation: aiCtaFloat 6s ease-in-out infinite; }
+.ai-particle.p4 { width: 40px; height: 40px; top: 20%; right: 20%; background: rgba(255,255,255,0.07); animation: aiCtaFloat 8s ease-in-out infinite reverse; }
+.ai-particle.p5 { width: 24px; height: 24px; bottom: 25%; left: 30%; background: rgba(255,255,255,0.1); animation: aiCtaFloat 5s ease-in-out infinite; }
+
+@keyframes aiCtaFloat {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-14px) scale(1.1); }
+}
+
+.ai-cta-content {
+  position: relative;
+  z-index: 2;
+}
+
+.ai-cta-icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 22px;
+}
+
+.ai-cta-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 22px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: white;
+  position: relative;
+  z-index: 2;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.ai-cta-ring {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 30px;
+  border: 2px solid rgba(255,255,255,0.12);
+  animation: aiRingPulse 3s ease-in-out infinite;
+}
+
+@keyframes aiRingPulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.15); opacity: 0.2; }
+}
+
+.ai-cta-box h2 {
+  font-size: 28px;
+  font-weight: 900;
+  margin-bottom: 12px;
+  letter-spacing: -0.3px;
+}
+
+.ai-cta-box p {
+  font-size: 14px;
+  opacity: 0.85;
+  max-width: 520px;
+  margin: 0 auto 24px;
+  line-height: 1.8;
+}
+
+.ai-cta-features {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+.ai-cta-feature {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(8px);
+  padding: 8px 16px;
+  border-radius: var(--radius-xl);
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.9);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+.ai-cta-feature i {
+  font-size: 14px;
+}
+
+.ai-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 36px;
+  background: white;
+  color: #4338CA;
+  border-radius: var(--radius-xl);
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+
+.ai-cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 40px rgba(0,0,0,0.2);
+  gap: 14px;
+  color: #4338CA;
+}
+
+[data-theme="dark"] .ai-cta-box {
+  background: linear-gradient(135deg, #1E1B4B 0%, #312E81 40%, #3730A3 70%, #4338CA 100%);
+}
+
+@media (max-width: 768px) {
+  .ai-cta-box { padding: 36px 20px; border-radius: var(--radius-lg); }
+  .ai-cta-box h2 { font-size: 22px; }
+  .ai-cta-box p { font-size: 13px; }
+  .ai-cta-features { gap: 8px; }
+  .ai-cta-feature { padding: 6px 12px; font-size: 11px; }
+  .ai-cta-btn { padding: 12px 28px; font-size: 14px; }
+  .ai-cta-icon { width: 60px; height: 60px; font-size: 26px; border-radius: 18px; }
+  .ai-cta-ring { width: 84px; height: 84px; border-radius: 26px; }
+}
+
+/* ═══════════════════════════════════════════
    FOOTER
    ═══════════════════════════════════════════ */
 .site-footer {

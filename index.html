@@ -56,7 +56,7 @@
       <button class="header-btn d-none d-md-flex" title="علاقه‌مندی‌ها">
         <i class="bi bi-heart"></i>
       </button>
-      <button class="login-btn" onclick="toggleSidebar()">
+      <button class="login-btn" onclick="window.location.href='register.html'">
         <i class="bi bi-person-circle"></i>
         ورود | ثبت نام
       </button>
@@ -78,6 +78,7 @@
       <a href="cat-audio.html" class="nav-link-item"><i class="bi bi-headphones"></i> صوت‌ها</a>
       <a href="cat-gallery.html" class="nav-link-item"><i class="bi bi-images"></i> نگارخانه</a>
       <a href="cat-articles.html" class="nav-link-item"><i class="bi bi-file-earmark-text"></i> مقالات</a>
+      <a href="ai-chat.html" class="nav-link-item"><i class="bi bi-stars"></i> هوش مصنوعی</a>
       <a href="#" class="nav-link-item"><i class="bi bi-gift"></i> رایگان</a>
     </div>
   </div>
@@ -181,7 +182,7 @@
         <div class="cat-icon-circle"><i class="bi bi-book"></i></div>
         <span class="cat-icon-label">استخاره آنلاین</span>
       </a>
-      <a href="#" class="cat-icon-card fade-up" style="animation-delay:.4s">
+      <a href="ai-chat.html" class="cat-icon-card fade-up" style="animation-delay:.4s">
         <div class="cat-icon-circle"><i class="bi bi-stars"></i></div>
         <span class="cat-icon-label">هوش مصنوعی</span>
       </a>
@@ -202,15 +203,10 @@
     <div class="section-chips-scroll">
       <div class="section-chips" data-target="selectedBooks" data-type="books">
         <button class="section-chip active" data-cat="all">همه</button>
-        <button class="section-chip" data-cat="اخلاق">اخلاق</button>
-        <button class="section-chip" data-cat="فقه">فقه</button>
-        <button class="section-chip" data-cat="عقاید">عقاید</button>
-        <button class="section-chip" data-cat="تفسیر">تفسیر</button>
-        <button class="section-chip" data-cat="احکام">احکام</button>
-        <button class="section-chip" data-cat="تاریخ">تاریخ اسلام</button>
-        <button class="section-chip" data-cat="سیره">سیره</button>
-        <button class="section-chip" data-cat="تربیتی">تربیتی</button>
-        <button class="section-chip" data-cat="خانواده">خانواده</button>
+        <button class="section-chip" data-cat="ادبیات و شعر">ادبیات و شعر</button>
+        <button class="section-chip" data-cat="موسیقی">موسیقی</button>
+        <button class="section-chip" data-cat="زن و زندگی">زن و زندگی</button>
+        <button class="section-chip" data-cat="حقوق و سیاست">حقوق و سیاست</button>
       </div>
     </div>
     <div class="book-scroll-wrapper" id="selectedBooks">
@@ -220,6 +216,46 @@
     </div>
   </div>
 </section>
+
+
+<!-- ═══ AI Chat CTA ═══ -->
+<section class="section-block fade-up">
+  <div class="container">
+    <div class="ai-cta-box">
+      <!-- Animated particles -->
+      <div class="ai-cta-particles">
+        <div class="ai-particle p1"></div>
+        <div class="ai-particle p2"></div>
+        <div class="ai-particle p3"></div>
+        <div class="ai-particle p4"></div>
+        <div class="ai-particle p5"></div>
+      </div>
+      <!-- Content -->
+      <div class="ai-cta-content">
+        <div class="ai-cta-icon-wrap">
+          <div class="ai-cta-icon">
+            <i class="bi bi-stars"></i>
+          </div>
+          <div class="ai-cta-ring"></div>
+        </div>
+        <h2>از هوش مصنوعی محبوب بپرسید</h2>
+        <p>دستیار هوشمند شما برای جستجو در آثار، پاسخ به سوالات دینی، معرفی کتاب و بسیاری از خدمات دیگر</p>
+        <div class="ai-cta-features">
+          <span class="ai-cta-feature"><i class="bi bi-lightning-charge-fill"></i> پاسخ سریع</span>
+          <span class="ai-cta-feature"><i class="bi bi-book-fill"></i> معرفی کتاب</span>
+          <span class="ai-cta-feature"><i class="bi bi-chat-heart-fill"></i> سوال شرعی</span>
+          <span class="ai-cta-feature"><i class="bi bi-search-heart"></i> جستجو هوشمند</span>
+        </div>
+        <a href="ai-chat.html" class="ai-cta-btn">
+          <i class="bi bi-stars"></i>
+          شروع گفتگو با هوش مصنوعی
+          <i class="bi bi-arrow-left"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <!-- ═══ آخرین صوت‌ها ═══ -->
 <section class="section-block fade-up" style="background: var(--bg-primary);">
@@ -345,6 +381,8 @@
     </div>
   </div>
 </section>
+
+
 
 <!-- ═══ Poster Banners (image-only) ═══ -->
 <section class="poster-banners fade-up">
@@ -529,14 +567,14 @@
     <a href="cat-audio.html" class="sidebar-nav-item"><i class="bi bi-headphones"></i> صوت‌ها</a>
     <a href="cat-gallery.html" class="sidebar-nav-item"><i class="bi bi-images"></i> نگارخانه</a>
     <a href="cat-articles.html" class="sidebar-nav-item"><i class="bi bi-file-text"></i> مقالات</a>
-    <a href="ai.html" class="sidebar-nav-item"><i class="bi bi-stars"></i> هوش مصنوعی</a>
+    <a href="ai-chat.html" class="sidebar-nav-item"><i class="bi bi-stars"></i> هوش مصنوعی</a>
     <div class="sidebar-section-title">سایر</div>
     <a href="about.html" class="sidebar-nav-item"><i class="bi bi-info-circle"></i> درباره ما</a>
     <a href="contact.html" class="sidebar-nav-item"><i class="bi bi-telephone"></i> تماس با ما</a>
     <a href="terms.html" class="sidebar-nav-item"><i class="bi bi-file-earmark-text"></i>قوانین و مقررات</a>
     <a href="privacy.html" class="sidebar-nav-item"><i class="bi bi-shield-lock"></i>حریم خصوصی</a>
   </div>
-  <div class="sidebar-footer"><button class="login-btn"><i class="bi bi-person-circle"></i> ورود | ثبت نام</button></div>
+  <div class="sidebar-footer"><a href="register.html" class="login-btn"><i class="bi bi-person-circle"></i> ورود | ثبت نام</a></div>
 </div>
 
 <!-- ═══ Mobile Bottom Nav ═══ -->

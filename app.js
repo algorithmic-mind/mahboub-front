@@ -2,26 +2,33 @@
    محبوب - Main JavaScript
    ═══════════════════════════════════════════ */
 
-// ─── Book Data (with categories) ───
-const bookCovers = [
-  {h:0,s:75,l:65},{h:200,s:70,l:55},{h:140,s:60,l:50},{h:30,s:80,l:60},
-  {h:270,s:65,l:60},{h:340,s:70,l:55},{h:180,s:55,l:50},{h:50,s:75,l:55},
-  {h:310,s:60,l:58},{h:10,s:80,l:55},{h:220,s:75,l:50},{h:100,s:55,l:48}
-];
-
+// ─── Book Data (with categories from sample_data) ───
 const persianBooks = [
-  {title:'مبانی اخلاق اسلامی',author:'آیت‌الله نکونام',badge:'',cat:'اخلاق'},
-  {title:'اصول فقه',author:'آیت‌الله نکونام',badge:'',cat:'فقه'},
-  {title:'شرح لمعه',author:'آیت‌الله نکونام',badge:'',cat:'فقه'},
-  {title:'مبانی عقیدتی اسلام',author:'آیت‌الله نکونام',badge:'',cat:'عقاید'},
-  {title:'تفسیر سوره حمد',author:'آیت‌الله نکونام',badge:'',cat:'تفسیر'},
-  {title:'رساله عملیه',author:'آیت‌الله نکونام',badge:'',cat:'احکام'},
-  {title:'سیره نبوی',author:'آیت‌الله نکونام',badge:'',cat:'سیره'},
-  {title:'تاریخ صدر اسلام',author:'آیت‌الله نکونام',badge:'',cat:'تاریخ'},
-  {title:'خانواده در اسلام',author:'آیت‌الله نکونام',badge:'',cat:'خانواده'},
-  {title:'تربیت فرزند',author:'آیت‌الله نکونام',badge:'',cat:'تربیتی'},
-  {title:'آداب معاشرت',author:'آیت‌الله نکونام',badge:'',cat:'اخلاق'},
-  {title:'جامعه‌شناسی دینی',author:'آیت‌الله نکونام',badge:'',cat:'اجتماعی'},
+  // ادبیات و شعر
+  {title:'دیوان عشق و معرفت ۴جلد',author:'آیت‌الله نکونام',badge:'',cat:'ادبیات و شعر',img:'https://nekooshop.com/wp-content/uploads/2025/04/6.All-Demo-Eshgh-Va-Marefat-1.jpg'},
+  {title:'دیوان قرب یار',author:'آیت‌الله نکونام',badge:'',cat:'ادبیات و شعر',img:'https://nekooshop.com/wp-content/uploads/2025/04/24.Demo-GHorbe-Yar.jpg'},
+  {title:'دیوان عروس دل',author:'آیت‌الله نکونام',badge:'',cat:'ادبیات و شعر',img:'https://nekooshop.com/wp-content/uploads/2025/04/3.Demo-Arose-Del-231x300.jpg'},
+  {title:'دیوان لطف نازنین',author:'آیت‌الله نکونام',badge:'',cat:'ادبیات و شعر',img:'https://nekooshop.com/wp-content/uploads/2025/04/26.Demo-Lotfe-Nazanin-231x300.jpg'},
+  {title:'دیوان غزل بهترین',author:'آیت‌الله نکونام',badge:'',cat:'ادبیات و شعر',img:'https://nekooshop.com/wp-content/uploads/2025/04/4.Demo-GHazale-Behtarin-231x300.jpg'},
+  {title:'دیوان عاشق ترین',author:'آیت‌الله نکونام',badge:'',cat:'ادبیات و شعر',img:'https://nekooshop.com/wp-content/uploads/2025/04/27.Demo-Asheghtarin-231x300.jpg'},
+  // موسیقی
+  {title:'کتاب آموزش مقامات موسیقی ایرانی',author:'آیت‌الله نکونام',badge:'',cat:'موسیقی',img:'https://nekooshop.com/wp-content/uploads/2025/04/47.Demo-Amozeshe-Maghamate-Mosighi-Irani-Vaziri.jpg'},
+  {title:'منطق موسیقی',author:'آیت‌الله نکونام',badge:'',cat:'موسیقی',img:'https://nekooshop.com/wp-content/uploads/2024/10/200.Demo-Mantegh-Mosighi-231x300.jpg'},
+  {title:'تاریخ تحلیلی موسیقی',author:'آیت‌الله نکونام',badge:'',cat:'موسیقی',img:'https://nekooshop.com/wp-content/uploads/2024/10/182.Demo-Tarikh-Tahlili-Mosighi-Dar-Eslam-231x300.jpg'},
+  {title:'رایج ترین مقامات موسیقی ایرانی',author:'آیت‌الله نکونام',badge:'',cat:'موسیقی',img:'https://nekooshop.com/wp-content/uploads/2024/10/47.Demo-Amozeshe-Maghamate-Mosighi-Irani-Roghee-231x300.jpg'},
+  // زن و زندگی
+  {title:'زن و آزادی',author:'آیت‌الله نکونام',badge:'',cat:'زن و زندگی',img:'https://nekooshop.com/wp-content/uploads/2024/10/184.Demo-Zan-Va-Azadmaneshi-Dini-231x300.jpg'},
+  {title:'زن و آزادمنشی',author:'آیت‌الله نکونام',badge:'',cat:'زن و زندگی',img:'https://nekooshop.com/wp-content/uploads/2024/10/184.Demo-Zan-Va-Azadmaneshi-Dini-231x300.jpg'},
+  {title:'غناخوانی زن',author:'آیت‌الله نکونام',badge:'',cat:'زن و زندگی',img:'https://nekooshop.com/wp-content/uploads/2024/10/183.Demo-GHana-KHanie-Zanan-231x300.jpg'},
+  {title:'نابسامانی در پوشش دین مداری',author:'آیت‌الله نکونام',badge:'',cat:'زن و زندگی',img:'https://nekooshop.com/wp-content/uploads/2024/10/92.Demo-Dastani-Az-Nabesamani-Da-Posheshe-Din-Madari.jpg'},
+  {title:'همسران و مدیران کارآمد',author:'آیت‌الله نکونام',badge:'',cat:'زن و زندگی',img:'https://nekooshop.com/wp-content/uploads/2024/10/144.Demo-Hamsaran-Va-modirane-Karamad.jpg'},
+  {title:'زن و زندگی',author:'آیت‌الله نکونام',badge:'',cat:'زن و زندگی',img:'https://nekooshop.com/wp-content/uploads/2024/10/145.Demo-Zan-Va-Zendegi-231x300.jpg'},
+  {title:'زندگی، عشق یا قانون',author:'آیت‌الله نکونام',badge:'',cat:'زن و زندگی',img:'https://nekooshop.com/wp-content/uploads/2024/10/143.Demo-Zendegi-Eshgh-ya-GHanoon.jpg'},
+  // حقوق و سیاست
+  {title:'نظام نامه روحانیت شیعه',author:'آیت‌الله نکونام',badge:'',cat:'حقوق و سیاست',img:'https://nekooshop.com/wp-content/uploads/2025/05/203.Demo-Nezam-Nameye-Rohaniyate-SHie.jpg'},
+  {title:'قانون ولایت',author:'آیت‌الله نکونام',badge:'',cat:'حقوق و سیاست',img:'https://nekooshop.com/wp-content/uploads/2025/05/203.Demo-Velayat-Va-GHanoon-231x300.jpg'},
+  {title:'قانون ۶ جلد',author:'آیت‌الله نکونام',badge:'',cat:'حقوق و سیاست',img:'https://nekooshop.com/wp-content/uploads/2024/10/217.All-Demo-GHanoon-Zaminehaye-Rahbari-231x300.jpg'},
+  {title:'حقوق نو بنیاد',author:'آیت‌الله نکونام',badge:'',cat:'حقوق و سیاست',img:'https://nekooshop.com/wp-content/uploads/2024/10/197.All-Demo-Hoghogh-Nobonyad-J1-231x300.jpg'},
 ];
 
 const audioBooks = [
@@ -60,7 +67,13 @@ const articleBooks = [
   {title:'احکام روزه مسافر',author:'آیت‌الله نکونام',badge:'',cat:'فقه'},
 ];
 
-// ─── SVG Book Cover Generator ───
+// ─── SVG Book Cover Generator (fallback for items without img) ───
+const bookCovers = [
+  {h:0,s:75,l:65},{h:200,s:70,l:55},{h:140,s:60,l:50},{h:30,s:80,l:60},
+  {h:270,s:65,l:60},{h:340,s:70,l:55},{h:180,s:55,l:50},{h:50,s:75,l:55},
+  {h:310,s:60,l:58},{h:10,s:80,l:55},{h:220,s:75,l:50},{h:100,s:55,l:48}
+];
+
 function generateBookCover(index, isAudio) {
   const c = bookCovers[index % bookCovers.length];
   const c2h = (c.h + 30) % 360;
@@ -83,16 +96,23 @@ function generateBookCover(index, isAudio) {
 
 // ─── Create a single book card HTML ───
 function createBookCard(book, index, isAudio) {
-  const coverSvg = encodeURIComponent(generateBookCover(index, isAudio));
   const badgeHtml = book.cat
     ? `<span class="book-badge">${book.cat}</span>`
     : (book.badge ? `<span class="book-badge">${book.badge}</span>` : '');
   const rating = (3.5 + Math.random() * 1.5).toFixed(1);
 
+  let coverImg;
+  if (book.img) {
+    coverImg = `<img class="book-cover-img" src="${book.img}" alt="${book.title}" style="width:100%;height:100%;object-fit:cover;">`;
+  } else {
+    const coverSvg = encodeURIComponent(generateBookCover(index, isAudio));
+    coverImg = `<img class="book-cover-img" src="data:image/svg+xml,${coverSvg}" alt="${book.title}">`;
+  }
+
   return `
     <a href="book-detail.html" class="book-card ${isAudio ? 'audio-card' : ''}" style="text-decoration:none;color:inherit">
       <div class="book-cover">
-        <img class="book-cover-img" src="data:image/svg+xml,${coverSvg}" alt="${book.title}">
+        ${coverImg}
         ${badgeHtml}
         <div class="book-overlay">
           <span class="book-overlay-btn">مشاهده کتاب</span>
@@ -123,12 +143,10 @@ function renderBooks(containerId, books, isAudio) {
     createBookCard(b, i + (isAudio ? 6 : 0), isAudio)
   ).join('');
 
-  // Scroll arrow logic
   const scrollAmount = 360;
 
   function updateArrows() {
     const maxScroll = scrollEl.scrollWidth - scrollEl.clientWidth;
-    // RTL: scrollLeft is negative in some browsers
     const sl = Math.abs(scrollEl.scrollLeft);
     arrRight.classList.toggle('disabled', sl <= 2);
     arrLeft.classList.toggle('disabled', sl >= maxScroll - 2);
@@ -142,7 +160,6 @@ function renderBooks(containerId, books, isAudio) {
   });
 
   scrollEl.addEventListener('scroll', updateArrows);
-  // Initial check after render
   requestAnimationFrame(updateArrows);
 }
 
@@ -153,7 +170,6 @@ document.addEventListener('DOMContentLoaded', () => {
   renderBooks('galleryBooks', galleryBooks, false);
   renderBooks('articleBooks', articleBooks, false);
 
-  // ─── Section Chip Filtering ───
   const dataMap = {
     books: persianBooks,
     audio: audioBooks,
@@ -168,32 +184,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     chipGroup.querySelectorAll('.section-chip').forEach(chip => {
       chip.addEventListener('click', () => {
-        // Update active state
         chipGroup.querySelectorAll('.section-chip').forEach(c => c.classList.remove('active'));
         chip.classList.add('active');
 
-        // Filter data
         const cat = chip.dataset.cat;
         const allData = dataMap[type] || [];
         const filtered = cat === 'all'
           ? allData
           : allData.filter(b => b.cat === cat);
 
-        // Re-render
         if (filtered.length > 0) {
           renderBooks(target, filtered, isAudio);
         } else {
-          // Show all if no match (shouldn't happen)
           renderBooks(target, allData, isAudio);
         }
       });
     });
   });
 
-  // Initialize mega menu first tab
   switchMegaTab(0, document.querySelector('.mega-sidebar-item'));
-
-  // Scroll animations
   initScrollAnimations();
 });
 
@@ -202,10 +211,10 @@ document.addEventListener('DOMContentLoaded', () => {
 // ═══════════════════════════════════════════
 const megaData = [
   { cols: [
-    {title:'اخلاق',links:['مبانی اخلاق','آداب معاشرت','اخلاق خانواده','حسن خلق','تهذیب نفس']},
-    {title:'فقه و احکام',links:['اصول فقه','شرح لمعه','رساله عملیه','احکام عبادات','احکام معاملات']},
-    {title:'عقاید و تفسیر',links:['مبانی عقیدتی','تفسیر قرآن','توحید','نبوت','معاد']},
-    {title:'تاریخ و سیره',links:['تاریخ صدر اسلام','سیره نبوی','سیره اهل بیت','تاریخ تشیع']}
+    {title:'ادبیات و شعر',links:['دیوان عشق و معرفت','دیوان قرب یار','دیوان عروس دل','دیوان لطف نازنین','دیوان غزل بهترین','دیوان عاشق ترین']},
+    {title:'موسیقی',links:['آموزش مقامات موسیقی ایرانی','منطق موسیقی','تاریخ تحلیلی موسیقی','رایج ترین مقامات']},
+    {title:'زن و زندگی',links:['زن و آزادی','زن و آزادمنشی','غناخوانی زن','همسران و مدیران کارآمد','زن و زندگی']},
+    {title:'حقوق و سیاست',links:['نظام نامه روحانیت شیعه','قانون ولایت','قانون ۶ جلد','حقوق نو بنیاد']}
   ]},
   { cols: [
     {title:'اخلاق',links:['سخنرانی‌های اخلاقی','پند و اندرز','تزکیه نفس']},
@@ -243,7 +252,6 @@ function toggleMegaMenu() {
   document.getElementById('megaDropdown').classList.toggle('show');
 }
 
-// Close mega menu on outside click
 document.addEventListener('click', (e) => {
   const mega = document.getElementById('megaDropdown');
   const trigger = document.getElementById('megaTrigger');
@@ -269,7 +277,6 @@ function toggleTheme() {
   }
 }
 
-// Restore saved theme
 (function() {
   const saved = localStorage.getItem('mahboob-theme');
   if (saved === 'dark') {
@@ -289,7 +296,6 @@ function toggleSidebar() {
     document.getElementById('mobileSidebar').classList.contains('show') ? 'hidden' : '';
 }
 
-// ─── Sidebar Accordion Categories ───
 function toggleSidebarCat(btn) {
   const section = btn.parentElement;
   const isOpen = section.classList.contains('open');
@@ -305,7 +311,7 @@ window.addEventListener('scroll', () => {
 });
 
 // ═══════════════════════════════════════════
-// SCROLL ANIMATIONS (Intersection Observer)
+// SCROLL ANIMATIONS
 // ═══════════════════════════════════════════
 function initScrollAnimations() {
   const observer = new IntersectionObserver((entries) => {
@@ -313,30 +319,22 @@ function initScrollAnimations() {
       if (e.isIntersecting) e.target.classList.add('visible');
     });
   }, { threshold: 0.1 });
-
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 }
 
 // ═══════════════════════════════════════════
-// MOBILE SEARCH - Styled Placeholder
+// MOBILE SEARCH
 // ═══════════════════════════════════════════
 (function() {
   const input = document.getElementById('mobileSearchInput');
   const placeholder = document.getElementById('searchPlaceholder');
   if (!input || !placeholder) return;
-
   function updatePlaceholder() {
-    if (input.value.length > 0) {
-      placeholder.classList.add('hidden');
-    } else {
-      placeholder.classList.remove('hidden');
-    }
+    if (input.value.length > 0) { placeholder.classList.add('hidden'); }
+    else { placeholder.classList.remove('hidden'); }
   }
-
   input.addEventListener('input', updatePlaceholder);
   input.addEventListener('blur', updatePlaceholder);
-
-  // Allow clicking on placeholder to focus input
   placeholder.addEventListener('click', () => input.focus());
 })();
 
