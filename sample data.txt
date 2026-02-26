@@ -30,3 +30,11 @@
  قانون ولایت https://nekooshop.com/wp-content/uploads/2025/05/203.Demo-Velayat-Va-GHanoon-231x300.jpg
  قانون ۶ جلد https://nekooshop.com/wp-content/uploads/2024/10/217.All-Demo-GHanoon-Zaminehaye-Rahbari-231x300.jpg
  حقوق نو بنیاد https://nekooshop.com/wp-content/uploads/2024/10/197.All-Demo-Hoghogh-Nobonyad-J1-231x300.jpg
+
+
+
+ موارد بهبودی:
+ - منوی هدر بالا موقع اسکرول پنهان میشه. نباید این اتفاق بیوفته
+ - گزینه نصب اپلیکیشن حذف شود
+ - ۶ تا باکس زیر هیرو سکشن بیاید داخل هیروسکشن قسمت پایین آن و به نحوی زیبا و هماهنگ باشد با استایل هیرو سکشن
+ - استایل دکمه های فیلتر تب قسمت کتابخانه محبوب رو تغییر بده خیلی گرده! یه استایل جدید اعمال کن

@@ -341,10 +341,3 @@ function initScrollAnimations() {
 // ═══════════════════════════════════════════
 // BOTTOM NAV ACTIVE STATE
 // ═══════════════════════════════════════════
-document.querySelectorAll('.bottom-nav-item').forEach(item => {
-  item.addEventListener('click', function(e) {
-    e.preventDefault();
-    document.querySelectorAll('.bottom-nav-item').forEach(i => i.classList.remove('active'));
-    this.classList.add('active');
-  });
-});
