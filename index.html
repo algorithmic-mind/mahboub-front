@@ -2,49 +2,41 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>سامانه جامع محبوب | مرکز نشر آثار آیت‌الله نکونام</title>
 <link href="bs5.css" rel="stylesheet">
 <link href="bootstrap-icons-1.13.1/bootstrap-icons.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link href="styles.css" rel="stylesheet">
+<link href="fixes.css" rel="stylesheet">
 </head>
 <body>
 
-<!-- ═══ Top Bar ═══ -->
+<!-- Top Bar -->
 <div class="top-bar">
   <span>📚 سامانه جامع محبوب — مرکز نشر آثار متنی، صوتی و تصویری آیت‌الله نکونام مدّ ظلّه العالی</span>
 </div>
 
-<!-- ═══ Main Header ═══ -->
+<!-- Main Header -->
 <header class="main-header" id="mainHeader">
   <div class="header-inner">
-    <!-- Mobile Menu Toggle -->
     <button class="header-btn d-lg-none" onclick="toggleSidebar()">
       <i class="bi bi-list"></i>
     </button>
-
-    <!-- Desktop Logo -->
     <a href="#" class="logo">
       <div class="logo-icon"><i class="bi bi-book-half"></i></div>
       <span class="logo-text d-none d-sm-inline">محبوب</span>
     </a>
-
-    <!-- Mobile Inline Search (visible on mobile, between menu & theme toggle) -->
     <div class="header-mobile-search">
       <input type="text" class="mobile-search-input" id="mobileSearchInput">
       <div class="search-placeholder" id="searchPlaceholder">
         جستجو در <span class="ph-red">محبوب</span>
       </div>
     </div>
-
-    <!-- Search -->
     <div class="search-box">
       <i class="bi bi-search search-icon"></i>
       <input type="text" placeholder="جستجو در محبوب...">
     </div>
-
-    <!-- Actions -->
     <div class="header-actions">
       <button class="header-btn" onclick="toggleTheme()" title="تغییر تم">
         <i class="bi bi-moon-stars" id="themeIcon"></i>
@@ -64,7 +56,7 @@
   </div>
 </header>
 
-<!-- ═══ Mega Menu Navigation ═══ -->
+<!-- Mega Menu Navigation -->
 <nav class="mega-nav d-none d-lg-block">
   <div class="mega-nav-inner">
     <button class="mega-trigger" id="megaTrigger" onclick="toggleMegaMenu()">
@@ -72,7 +64,6 @@
       دسته‌بندی‌ها
       <i class="bi bi-chevron-down" style="font-size:12px;"></i>
     </button>
-
     <div class="nav-links">
       <a href="cat-books.html" class="nav-link-item active"><i class="bi bi-journal-text"></i> کتابخانه</a>
       <a href="cat-audio.html" class="nav-link-item"><i class="bi bi-headphones"></i> صوت‌ها</a>
@@ -103,7 +94,7 @@
   </div>
 </nav>
 
-<!-- ═══ Hero Section ═══ -->
+<!-- Hero Section (with integrated category icons) -->
 <section class="hero-section">
   <div class="hero-floating-books">
     <div class="floating-book"></div>
@@ -111,7 +102,6 @@
     <div class="floating-book"></div>
     <div class="floating-book"></div>
     <div class="floating-book"></div>
-    
     <div class="floating-img fi-1">
       <img src="imgs/ayatollah-nekoonam.png" alt="" width="72" height="72">
     </div>
@@ -125,7 +115,6 @@
       <div class="hero-image">
         <div class="hero-img-stack">
           <div class="hero-book hb-1"></div>
-         
           <div class="hero-book hb-3"></div>
           <div class="hero-phone">
             <div class="phone-screen">
@@ -147,50 +136,40 @@
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- Hero CTA (sits on the hero/categories border) -->
-<div class="hero-cta-wrapper">
-  <a href="#" class="hero-cta">
-    <i class="bi bi-download"></i>
-    نصب اپلیکیشن محبوب
-  </a>
-</div>
-
-<!-- ═══ Category Icons ═══ -->
-<section class="category-icons">
-  <div class="container">
-    <div class="cat-icon-grid">
-      <a href="cat-books.html" class="cat-icon-card fade-up">
-        <div class="cat-icon-circle"><i class="bi bi-bookmarks"></i></div>
-        <span class="cat-icon-label">کتابخانه محبوب</span>
-      </a>
-      <a href="cat-audio.html" class="cat-icon-card fade-up" style="animation-delay:.1s">
-        <div class="cat-icon-circle"><i class="bi bi-headphones"></i></div>
-        <span class="cat-icon-label">صوت‌ها</span>
-      </a>
-      <a href="cat-gallery.html" class="cat-icon-card fade-up" style="animation-delay:.2s">
-        <div class="cat-icon-circle"><i class="bi bi-images"></i></div>
-        <span class="cat-icon-label">نگارخانه</span>
-      </a>
-      <a href="cat-articles.html" class="cat-icon-card fade-up" style="animation-delay:.3s">
-        <div class="cat-icon-circle"><i class="bi bi-file-earmark-text"></i></div>
-        <span class="cat-icon-label">مقالات</span>
-      </a>
-      <a href="#" class="cat-icon-card fade-up" style="animation-delay:.35s">
-        <div class="cat-icon-circle"><i class="bi bi-book"></i></div>
-        <span class="cat-icon-label">استخاره آنلاین</span>
-      </a>
-      <a href="ai-chat.html" class="cat-icon-card fade-up" style="animation-delay:.4s">
-        <div class="cat-icon-circle"><i class="bi bi-stars"></i></div>
-        <span class="cat-icon-label">هوش مصنوعی</span>
-      </a>
+    <!-- Category Icons (integrated inside hero) -->
+    <div class="category-icons">
+      <div class="cat-icon-grid">
+        <a href="cat-books.html" class="cat-icon-card fade-up">
+          <div class="cat-icon-circle"><i class="bi bi-bookmarks"></i></div>
+          <span class="cat-icon-label">کتابخانه محبوب</span>
+        </a>
+        <a href="cat-audio.html" class="cat-icon-card fade-up" style="animation-delay:.1s">
+          <div class="cat-icon-circle"><i class="bi bi-headphones"></i></div>
+          <span class="cat-icon-label">صوت‌ها</span>
+        </a>
+        <a href="cat-gallery.html" class="cat-icon-card fade-up" style="animation-delay:.2s">
+          <div class="cat-icon-circle"><i class="bi bi-images"></i></div>
+          <span class="cat-icon-label">نگارخانه</span>
+        </a>
+        <a href="cat-articles.html" class="cat-icon-card fade-up" style="animation-delay:.3s">
+          <div class="cat-icon-circle"><i class="bi bi-file-earmark-text"></i></div>
+          <span class="cat-icon-label">مقالات</span>
+        </a>
+        <a href="#" class="cat-icon-card fade-up" style="animation-delay:.35s">
+          <div class="cat-icon-circle"><i class="bi bi-book"></i></div>
+          <span class="cat-icon-label">استخاره آنلاین</span>
+        </a>
+        <a href="ai-chat.html" class="cat-icon-card fade-up" style="animation-delay:.4s">
+          <div class="cat-icon-circle"><i class="bi bi-stars"></i></div>
+          <span class="cat-icon-label">هوش مصنوعی</span>
+        </a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ کتابخانه محبوب ═══ -->
+<!-- کتابخانه محبوب -->
 <section class="section-block fade-up">
   <div class="container">
     <div class="section-header">
@@ -217,12 +196,10 @@
   </div>
 </section>
 
-
-<!-- ═══ AI Chat CTA ═══ -->
+<!-- AI Chat CTA -->
 <section class="section-block fade-up">
   <div class="container">
     <div class="ai-cta-box">
-      <!-- Animated particles -->
       <div class="ai-cta-particles">
         <div class="ai-particle p1"></div>
         <div class="ai-particle p2"></div>
@@ -230,12 +207,9 @@
         <div class="ai-particle p4"></div>
         <div class="ai-particle p5"></div>
       </div>
-      <!-- Content -->
       <div class="ai-cta-content">
         <div class="ai-cta-icon-wrap">
-          <div class="ai-cta-icon">
-            <i class="bi bi-stars"></i>
-          </div>
+          <div class="ai-cta-icon"><i class="bi bi-stars"></i></div>
           <div class="ai-cta-ring"></div>
         </div>
         <h2>از هوش مصنوعی محبوب بپرسید</h2>
@@ -256,8 +230,7 @@
   </div>
 </section>
 
-
-<!-- ═══ آخرین صوت‌ها ═══ -->
+<!-- آخرین صوت‌ها -->
 <section class="section-block fade-up" style="background: var(--bg-primary);">
   <div class="container">
     <div class="section-header">
@@ -288,7 +261,7 @@
   </div>
 </section>
 
-<!-- ═══ آخرین نگاره‌ها ═══ -->
+<!-- آخرین نگاره‌ها -->
 <section class="section-block fade-up">
   <div class="container">
     <div class="section-header">
@@ -317,7 +290,7 @@
   </div>
 </section>
 
-<!-- ═══ مقالات ═══ -->
+<!-- مقالات -->
 <section class="section-block fade-up" style="background: var(--bg-primary);">
   <div class="container">
     <div class="section-header">
@@ -347,7 +320,7 @@
   </div>
 </section>
 
-<!-- ═══ Promo Banners ═══ -->
+<!-- Promo Banners -->
 <section class="promo-banners fade-up">
   <div class="container">
     <div class="row g-3">
@@ -382,73 +355,46 @@
   </div>
 </section>
 
-
-
-<!-- ═══ Poster Banners (image-only) ═══ -->
+<!-- Poster Banners -->
 <section class="poster-banners fade-up">
   <div class="container">
     <div class="row g-3">
       <div class="col-md-4">
         <a href="#" class="poster-card">
           <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" class="poster-img">
-            <defs>
-              <linearGradient id="p1" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#1A237E"/>
-                <stop offset="100%" stop-color="#283593"/>
-              </linearGradient>
-            </defs>
+            <defs><linearGradient id="p1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1A237E"/><stop offset="100%" stop-color="#283593"/></linearGradient></defs>
             <rect width="400" height="240" fill="url(#p1)"/>
             <circle cx="320" cy="60" r="80" fill="rgba(255,255,255,0.05)"/>
-            <circle cx="80" cy="200" r="60" fill="rgba(255,255,255,0.04)"/>
             <rect x="40" y="60" width="140" height="8" rx="4" fill="rgba(255,255,255,0.2)"/>
             <rect x="40" y="80" width="100" height="6" rx="3" fill="rgba(255,255,255,0.12)"/>
             <rect x="40" y="110" width="80" height="80" rx="12" fill="rgba(255,255,255,0.1)"/>
             <rect x="140" y="110" width="80" height="80" rx="12" fill="rgba(255,255,255,0.07)"/>
             <rect x="260" y="80" width="100" height="130" rx="14" fill="rgba(255,255,255,0.08)"/>
-            <text x="90" y="160" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="28" font-family="sans-serif">📖</text>
           </svg>
         </a>
       </div>
       <div class="col-md-4">
         <a href="#" class="poster-card">
           <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" class="poster-img">
-            <defs>
-              <linearGradient id="p2" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#4A148C"/>
-                <stop offset="100%" stop-color="#6A1B9A"/>
-              </linearGradient>
-            </defs>
+            <defs><linearGradient id="p2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4A148C"/><stop offset="100%" stop-color="#6A1B9A"/></linearGradient></defs>
             <rect width="400" height="240" fill="url(#p2)"/>
             <circle cx="200" cy="120" r="100" fill="rgba(255,255,255,0.04)"/>
             <rect x="50" y="50" width="120" height="140" rx="14" fill="rgba(255,255,255,0.08)"/>
-            <rect x="60" y="65" width="100" height="12" rx="6" fill="rgba(255,255,255,0.15)"/>
-            <rect x="60" y="85" width="70" height="6" rx="3" fill="rgba(255,255,255,0.1)"/>
-            <circle cx="110" cy="150" r="20" fill="rgba(255,255,255,0.1)"/>
             <rect x="200" y="70" width="150" height="8" rx="4" fill="rgba(255,255,255,0.15)"/>
             <rect x="200" y="90" width="120" height="6" rx="3" fill="rgba(255,255,255,0.1)"/>
-            <rect x="200" y="120" width="140" height="6" rx="3" fill="rgba(255,255,255,0.08)"/>
-            <rect x="200" y="140" width="100" height="6" rx="3" fill="rgba(255,255,255,0.06)"/>
-            <text x="110" y="158" text-anchor="middle" fill="rgba(255,255,255,0.25)" font-size="22" font-family="sans-serif">🎧</text>
           </svg>
         </a>
       </div>
       <div class="col-md-4">
         <a href="#" class="poster-card">
           <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" class="poster-img">
-            <defs>
-              <linearGradient id="p3" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#004D40"/>
-                <stop offset="100%" stop-color="#00695C"/>
-              </linearGradient>
-            </defs>
+            <defs><linearGradient id="p3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#004D40"/><stop offset="100%" stop-color="#00695C"/></linearGradient></defs>
             <rect width="400" height="240" fill="url(#p3)"/>
             <circle cx="340" cy="180" r="90" fill="rgba(255,255,255,0.04)"/>
             <rect x="30" y="40" width="160" height="10" rx="5" fill="rgba(255,255,255,0.18)"/>
-            <rect x="30" y="60" width="110" height="6" rx="3" fill="rgba(255,255,255,0.1)"/>
             <rect x="30" y="90" width="100" height="120" rx="14" fill="rgba(255,255,255,0.08)"/>
             <rect x="150" y="90" width="100" height="120" rx="14" fill="rgba(255,255,255,0.06)"/>
             <rect x="270" y="90" width="100" height="120" rx="14" fill="rgba(255,255,255,0.04)"/>
-            <text x="80" y="165" text-anchor="middle" fill="rgba(255,255,255,0.25)" font-size="28" font-family="sans-serif">🎬</text>
           </svg>
         </a>
       </div>
@@ -456,7 +402,7 @@
   </div>
 </section>
 
-<!-- ═══ Discover Section ═══ -->
+<!-- Discover Section -->
 <section class="section-block fade-up">
   <div class="container">
     <div class="discover-box">
@@ -472,7 +418,7 @@
   </div>
 </section>
 
-<!-- ═══ Footer ═══ -->
+<!-- Footer -->
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
@@ -523,37 +469,22 @@
         <a href="cat-articles.html">مقالات</a>
       </div>
     </div>
-
-    <!-- Trust Badges & Licenses -->
     <div class="footer-trust">
       <div class="footer-trust-title">نماد‌های اعتماد و مجوز‌ها</div>
       <div class="trust-grid">
-        <a href="#" class="trust-badge">
-          <div class="trust-badge-icon enamad"><i class="bi bi-patch-check-fill"></i></div>
-          <span class="trust-badge-label">نماد اعتماد<br>الکترونیکی</span>
-        </a>
-        <a href="#" class="trust-badge">
-          <div class="trust-badge-icon samandehi"><i class="bi bi-shield-check"></i></div>
-          <span class="trust-badge-label">ساماندهی<br>اینترنتی</span>
-        </a>
-        <a href="#" class="trust-badge">
-          <div class="trust-badge-icon resaneh"><i class="bi bi-broadcast-pin"></i></div>
-          <span class="trust-badge-label">مجوز رسانه<br>دیجیتال</span>
-        </a>
-        <a href="#" class="trust-badge">
-          <div class="trust-badge-icon ssl"><i class="bi bi-lock-fill"></i></div>
-          <span class="trust-badge-label">گواهی<br>SSL</span>
-        </a>
+        <a href="#" class="trust-badge"><div class="trust-badge-icon enamad"><i class="bi bi-patch-check-fill"></i></div><span class="trust-badge-label">نماد اعتماد<br>الکترونیکی</span></a>
+        <a href="#" class="trust-badge"><div class="trust-badge-icon samandehi"><i class="bi bi-shield-check"></i></div><span class="trust-badge-label">ساماندهی<br>اینترنتی</span></a>
+        <a href="#" class="trust-badge"><div class="trust-badge-icon resaneh"><i class="bi bi-broadcast-pin"></i></div><span class="trust-badge-label">مجوز رسانه<br>دیجیتال</span></a>
+        <a href="#" class="trust-badge"><div class="trust-badge-icon ssl"><i class="bi bi-lock-fill"></i></div><span class="trust-badge-label">گواهی<br>SSL</span></a>
       </div>
     </div>
-
     <div class="footer-bottom">
       <p>© ۱۴۰۴ سامانه جامع محبوب. تمامی حقوق محفوظ است.</p>
     </div>
   </div>
 </footer>
 
-<!-- ═══ Mobile Sidebar (Glass) ═══ -->
+<!-- Mobile Sidebar -->
 <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
 <div class="mobile-sidebar" id="mobileSidebar">
   <div class="sidebar-header">
@@ -574,31 +505,26 @@
     <a href="terms.html" class="sidebar-nav-item"><i class="bi bi-file-earmark-text"></i>قوانین و مقررات</a>
     <a href="privacy.html" class="sidebar-nav-item"><i class="bi bi-shield-lock"></i>حریم خصوصی</a>
   </div>
-   <div class="sidebar-footer"><a href="register.html" class="login-btn"><i class="bi bi-person-circle"></i> ورود | ثبت نام</a></div>
+  <div class="sidebar-footer"><a href="register.html" class="login-btn"><i class="bi bi-person-circle"></i> ورود | ثبت نام</a></div>
 </div>
 
-<!-- ═══ Mobile Bottom Nav ═══ -->
+<!-- Mobile Bottom Nav -->
 <div class="mobile-bottom-nav">
   <div class="bottom-nav-inner">
     <a href="#" class="bottom-nav-item active">
-      <i class="bi bi-house-fill"></i>
-      <span>خانه</span>
+      <i class="bi bi-house-fill"></i><span>خانه</span>
     </a>
     <a href="about.html" class="bottom-nav-item">
-      <i class="bi bi-info-circle"></i>
-      <span>درباره ما</span>
+      <i class="bi bi-info-circle"></i><span>درباره ما</span>
     </a>
     <a href="ai-chat.html" class="bottom-nav-item">
-      <i class="bi bi-stars"></i>
-      <span>هوش مصنوعی</span>
+      <i class="bi bi-stars"></i><span>هوش مصنوعی</span>
     </a>
     <a href="cat-books.html" class="bottom-nav-item">
-      <i class="bi bi-bookmarks"></i>
-      <span>کتابخانه</span>
+      <i class="bi bi-bookmarks"></i><span>کتابخانه</span>
     </a>
     <a href="register.html" class="bottom-nav-item">
-      <i class="bi bi-person"></i>
-      <span>حساب من</span>
+      <i class="bi bi-person"></i><span>حساب من</span>
     </a>
   </div>
 </div>
